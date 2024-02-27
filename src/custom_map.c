@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 00:40:05 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/23 19:10:41 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/20 10:07:36 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ int	custom_indoor_map(t_data *data)
 				else if (data->selecter_custom == 4 && (check_void(data, x + 1,
 							y) || x == data->size_x))
 					data->map[x][y] = 'r';
-				// else if ((check_void(data, x + 1, y) || x == data->size_x))
-				// 	data->map[x][y] = 'r';
 				else
 					data->map[x][y] = '1';
 				data->selecter_custom++;

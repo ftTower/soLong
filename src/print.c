@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/19 19:58:04 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 11:18:12 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	debug_map(char **map)
 
 	x = 0;
 	y = 0;
+	print_simple_line();
 	while (map[x])
 	{
 		y = 0;
@@ -64,6 +65,7 @@ void	debug_map(char **map)
 		printf("\n");
 		x++;
 	}
+	print_simple_line();
 }
 
 void	stats(int unite)
@@ -80,8 +82,8 @@ void	render_stats(t_data *data, int x)
 {
 	if (x == 0)
 	{
-		printf("\033[48;5;248m    coords : [%d] - [%d]     \033[0m", (int)floor(data->x),
-			(int)floor(data->y));
+		printf("\033[48;5;248m    coords : [%d] - [%d]     \033[0m", data->x,
+			data->y);
 		/// stats(data->y);
 	}
 	if (x == 1)
@@ -129,6 +131,7 @@ void	core_terminal(t_data *data)
 
 	x = 0;
 	y = 0;
+	print_line(data);
 	while (data->map[x])
 	{
 		y = 0;
@@ -163,6 +166,7 @@ void	core_terminal(t_data *data)
 		printf("\n");
 		x++;
 	}
+	print_line(data);
 }
 
 void	print_line(t_data *data)
@@ -175,11 +179,14 @@ void	print_line(t_data *data)
 	printf("     \n\033[0m");
 }
 
+void	print_simple_line(void)
+{
+	write(1, "======================================================================\n", 72);
+}
+
 void	render_terminal(t_data *data)
 {
 	printf("\033c");
-	print_line(data);
 	core_terminal(data);
 	//debug_map(data->map);
-	print_line(data);
 }

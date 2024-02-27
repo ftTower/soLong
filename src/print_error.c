@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:47:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/27 04:54:34 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/20 16:51:28 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	map_erreur(char **map, t_data *data)
 		printf("\n");
 		x++;
 	}
+	print_simple_line();
 }
 
 void	map_erreur_size(char **map, t_data *data, int x_error)
@@ -54,6 +55,7 @@ void	map_erreur_size(char **map, t_data *data, int x_error)
 
 	x = 0;
 	y = 0;
+	print_simple_line();
 	while (map[x])
 	{
 		y = 0;
@@ -84,6 +86,7 @@ void	map_erreur_size(char **map, t_data *data, int x_error)
 		printf("\n");
 		x++;
 	}
+	print_simple_line();
 }
 
 void	map_erreur_char(char **map, t_data *data, int x_error, int y_error)
@@ -93,6 +96,7 @@ void	map_erreur_char(char **map, t_data *data, int x_error, int y_error)
 
 	x = 0;
 	y = 0;
+	print_simple_line();
 	while (map[x])
 	{
 		y = 0;
@@ -123,4 +127,5 @@ void	map_erreur_char(char **map, t_data *data, int x_error, int y_error)
 		printf("\n");
 		x++;
 	}
+	print_simple_line();
 }

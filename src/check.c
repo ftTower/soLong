@@ -1,4 +1,4 @@
-																																																																				/*	 ************************************************************************** */
+/*		************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
@@ -42,29 +42,26 @@ int	check_void(t_data *data, int x, int y)
 	return (c == 'X');
 }
 
-int check_next(t_data *data, int x, int y)
+int	check_next(t_data *data, int x, int y)
 {
-    // Vérifier si les coordonnées sont à l'intérieur des limites de la carte
-    if (x < 0 || x >= data->size_x || y < 0 || y >= data->size_y)
-        return 0;
+	char	next_cell;
 
-    // Vérifier le contenu de la case suivante
-    char next_cell = data->map[x][y];
-    
-    // Si la case est vide ou une sortie, retourner 1 pour permettre le déplacement
-    if (next_cell == '0' || next_cell == '2' || next_cell == 'T' || (next_cell == 'E' && data->collectibles_left == 0))
-        return 1;
-    
-    // Sinon, retourner 0 pour bloquer le déplacement
-    return 0;
+	if (x < 0 || x >= data->size_x || y < 0 || y >= data->size_y)
+		return (0);
+	next_cell = data->map[x][y];
+	if (next_cell == '0' || next_cell == '2' || next_cell == 'T'
+		|| (next_cell == 'E' && data->collectibles_left == 0))
+		return (1);
+	return (0);
 }
-
 
 int	borders(char c)
 {
-	if (c == 'X' || c == 'C')
+	if (c == 'X')
 	{
+		print_simple_line();
 		printf("map not closed\n");
+		print_simple_line();
 		return (1);
 	}
 	return (0);

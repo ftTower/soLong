@@ -6,149 +6,67 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:51:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/19 20:06:59 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 11:33:41 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-int	diago(t_data *data)
+bool	diago(t_data *data)
 {
-	if (data->x > data->v_x && data->y < data->v_y && check_empty(data,
-			data->v_x + 1, data->v_y - 1))
+	if (data->x < data->v_x && data->y < data->v_y)
 	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x + 1][data->v_y - 1] == 'C')
-			close_win(data);
-		data->map[data->v_x + 1][data->v_y - 1] = 'V';
-		data->v_x++;
-		data->v_y--;
-		return (0);
+		v_nor_we(data);
+		// write(1, "nord_we\n", 9);
+		return (false);
 	}
-	else if (data->x < data->v_x && data->y < data->v_y && check_empty(data,
-			data->v_x - 1, data->v_y - 1))
+	if (data->x < data->v_x && data->y > data->v_y)
 	{
-		data->map[data->v_x][data->v_y] = '0';
-		data->map[data->v_x - 1][data->v_y - 1] = 'V';
-		if (data->map[data->v_x - 1][data->v_y - 1] == 'C')
-			close_win(data);
-		data->v_x--;
-		data->v_y--;
-		return (0);
+		v_nor_ea(data);
+		// write(1, "nord_ea\n", 9);
+		return (false);
 	}
-	else if (data->x < data->v_x && data->y > data->v_y && check_empty(data,
-			data->v_x - 1, data->v_y + 1))
+	if (data->x > data->v_x && data->y < data->v_y)
 	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x - 1][data->v_y + 1] == 'C')
-			close_win(data);
-		data->map[data->v_x - 1][data->v_y + 1] = 'V';
-		data->v_x--;
-		data->v_y++;
-		return (0);
+		v_south_we(data);
+		// write(1, "sout_we\n", 9);
+		return (false);
 	}
-	else if (data->x > data->v_x && data->y > data->v_y && check_empty(data,
-			data->v_x + 1, data->v_y + 1))
+	if (data->x > data->v_x && data->y > data->v_y)
 	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x + 1][data->v_y + 1] == 'C')
-			close_win(data);
-		data->map[data->v_x + 1][data->v_y + 1] = 'V';
-		data->v_x++;
-		data->v_y++;
-		return (0);
+		v_south_ea(data);
+		// write(1, "south_ea\n", 9);
+		return (false);
 	}
-	return (1);
+	return (true);
 }
 
-int	cote(t_data *data)
+bool	cote_with_goal(t_data *data)
 {
-	if (data->y < data->v_y && check_empty(data, data->v_x, data->v_y - 1))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x][data->v_y - 1] == 'C')
-			close_win(data);
-		data->map[data->v_x][data->v_y - 1] = 'V';
-		data->v_y--;
-		return (0);
-	}
-	else if (data->x > data->v_x && check_empty(data, data->v_x + 1, data->v_y))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x + 1][data->v_y] == 'C')
-			close_win(data);
-		data->map[data->v_x + 1][data->v_y] = 'V';
-		data->v_x++;
-		return (0);
-	}
-	else if (data->x < data->v_x && check_empty(data, data->v_x - 1, data->v_y))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x - 1][data->v_y] == 'C')
-			close_win(data);
-		data->map[data->v_x - 1][data->v_y] = 'V';
-		data->v_x--;
-		return (0);
-	}
-	else if (data->y > data->v_y && check_empty(data, data->v_x, data->v_y + 1))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x][data->v_y + 1] == 'C')
-			close_win(data);
-		data->map[data->v_x][data->v_y + 1] = 'V';
-		data->v_y++;
-		return (0);
-	}
-	return (1);
+	if (data->x < data->v_x)
+		return (v_north(data));
+	else if (data->x > data->v_x)
+		return (v_south(data));
+	else if (data->y < data->v_y)
+		return (v_west(data));
+	else if (data->y > data->v_y)
+		return (v_east(data));
+	return (true);
 }
 
-int	cote_without_goal(t_data *data)
+void	cote_without_goal(t_data *data)
 {
-	if (check_empty(data, data->v_x, data->v_y - 1))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x][data->v_y - 1] == 'C')
-			close_win(data);
-		data->map[data->v_x][data->v_y - 1] = 'V';
-		data->v_y--;
-		return (0);
-	}
-	else if (check_empty(data, data->v_x, data->v_y + 1))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x][data->v_y + 1] == 'C')
-			close_win(data);
-		data->map[data->v_x][data->v_y + 1] = 'V';
-		data->v_y++;
-		return (0);
-	}
-	else if (check_empty(data, data->v_x + 1, data->v_y))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x + 1][data->v_y] == 'C')
-			close_win(data);
-		data->map[data->v_x + 1][data->v_y] = 'V';
-		data->v_x++;
-		return (0);
-	}
-	else if (check_empty(data, data->v_x - 1, data->v_y))
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		if (data->map[data->v_x - 1][data->v_y] == 'C')
-			close_win(data);
-		data->map[data->v_x - 1][data->v_y] = 'V';
-		data->v_x--;
-		return (0);
-	}
-	return (1);
+	if (v_north(data))
+		if (v_south(data))
+			if (v_east(data))
+				v_west(data);
 }
 
 void	best_decisition(t_data *data)
 {
 	if (diago(data))
-		if (cote(data))
-			if (cote_without_goal(data))
-				return ;
+		if (cote_with_goal(data))
+			(cote_without_goal(data));
 }
 
 int	ennemy_dead(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/19 18:09:16 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:26:24 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../header/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
+
 # include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -64,9 +65,6 @@ typedef struct s_textures
 	t_img			toward_wall_left_empty;
 	t_img			toward_wall_right_empty;
 
-	t_img			exit;
-	t_img			exit_open;
-
 	t_img			collectibles;
 
 	t_img			perso;
@@ -88,7 +86,10 @@ typedef struct s_textures
 	t_img			running_1;
 	t_img			running_2;
 
-	t_img			ennemy;
+	t_img			ennemy_front;
+	t_img			ennemy_back;
+	t_img			ennemy_right;
+	t_img			ennemy_left;
 
 	t_img			capsule;
 
@@ -120,7 +121,6 @@ typedef struct s_textures
 	t_img			exit_18;
 	t_img			exit_19;
 
-	t_img			wall_screen_indoor;
 	t_img			panel_wall;
 	t_img			private_door;
 
@@ -133,6 +133,7 @@ typedef struct s_textures
 	t_img			wall_screen_outdoor_4;
 	t_img			wall_screen_outdoor_5;
 
+	t_img			wall_screen_indoor;
 	t_img			wall_screen_indoor_1;
 	t_img			wall_screen_indoor_2;
 	t_img			wall_screen_indoor_3;
@@ -147,6 +148,7 @@ typedef struct s_textures
 
 	t_img			current_exit;
 	t_img			current_perso;
+	t_img			current_ennemy;
 	t_img			current_capsule;
 	t_img			current_screen_outdoor;
 	t_img			current_screen_indoor;
@@ -166,8 +168,15 @@ typedef struct s_data
 {
 	void			*mlx;
 	void			*win;
-	int				width;
-	int				height;
+	int				win_x;
+	int				win_y;
+	int				shocking_win;
+
+	void			*mlx_num;
+	void			*win_num;
+	int				win_x_num;
+	int				win_y_num;
+
 	int				collectibles;
 	int				collectibles_left;
 	long long		move;
@@ -186,29 +195,23 @@ typedef struct s_data
 
 	int				x;
 	int				y;
-	int				no_x;
-	int				no_y;
-	int				no_ch_x;
-	int				no_ch_y;
+	int				mov_chunk_x;
+	int				mov_chunk_y;
 
 	int				v_x;
 	int				v_y;
+	int				chunk_v_x;
+	int				chunk_v_y;
+
 	int				life_ennemy;
 
 	int				mov_status;
-
-	int				mov_chunk_x;
-	int				mov_chunk_y;
 
 	int				first_wall_x;
 	int				first_wall_y;
 
 	int				e_x;
 	int				e_y;
-
-	int				win_x;
-	int				win_y;
-	int				shocking_win;
 
 	int				selecter_custom;
 
@@ -233,6 +236,7 @@ typedef enum t_dir
 	nor_we,
 	sou_ea,
 	sou_we,
+	no_dir,
 }					t_dir;
 
 // check
@@ -286,6 +290,7 @@ void				stats(int unite);
 void				render_stats(t_data *data, int x);
 void				core_terminal(t_data *data);
 void				print_line(t_data *data);
+void				print_simple_line(void);
 void				render_terminal(t_data *data);
 void				map_erreur(char **map, t_data *data);
 
@@ -352,7 +357,33 @@ void				map_erreur_size(char **map, t_data *data, int x_error);
 void				map_erreur_char(char **map, t_data *data, int x_error,
 						int y_error);
 
-t_dir    get_dir(t_data *data);
+t_dir				get_dir(t_data *data);
+
+void				f_nor_we(t_data *data);
+void				f_nor_ea(t_data *data);
+void				f_sou_we(t_data *data);
+void				f_sou_ea(t_data *data);
+
+void				f_north(t_data *data);
+void				f_south(t_data *data);
+void				f_east(t_data *data);
+void				f_west(t_data *data);
+
+bool				v_west(t_data *data);
+bool				v_east(t_data *data);
+bool				v_south(t_data *data);
+bool				v_north(t_data *data);
+
+void				pixelator_perso(t_data *data, t_dir dir);
+bool				pixelator_ennemy(t_data *data, t_dir dir);
+
+bool	v_nor_we(t_data *data);
+bool	v_nor_ea(t_data *data);
+bool	v_south_we(t_data *data);
+bool	v_south_ea(t_data *data);
+
+size_t	ft_strlen(const char *str);
+char	**tab_tab_split(const char *s, char c);
 
 
 #endif

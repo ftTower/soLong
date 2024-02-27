@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:14:57 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/25 14:47:59 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 18:27:13 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,33 @@ void	delete_emptyness(t_data *data,char **map)
 		x++;
 	}
 }
+
+// char	*ft_strdup(const char *s)
+// {
+// 	size_t	len_s;
+// 	char	*str;
+// 	char	*ptr;
+
+// 	len_s = strlen(s);
+// 	str = (char *)malloc(sizeof(char) * (len_s + 1));
+// 	if (!str)
+// 		return (NULL);
+// 	ptr = str;
+// 	while (len_s-- > 0)
+// 		*str++ = *s++;
+// 	*str = '\0';
+// 	return (ptr);
+// }
+
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t i;
+
+// 	i = 0;
+// 	if (!str)
+// 		return (0);
+// 	while(str[i])
+// 		i++;
+// 	return (i);
+// }
 

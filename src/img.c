@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:40:26 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/23 20:15:09 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/20 10:12:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,3 @@ t_img	new_img(int w, int h, t_data *data)
 	image.h = h;
 	return (image);
 }
-
-// void	make_img(t_data *data, char *path, size_t x, size_t y)
-// {
-// 	put_img_to_img(data, x, y);
-// }

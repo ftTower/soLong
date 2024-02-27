@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/19 19:06:39 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 13:47:37 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	sas(t_data *data)
 	else
 	{
 		printf("[FAILURE]\n");
+		print_simple_line();
+		free_map(data->map);
 		free_map(data->map);
 	}
 }
@@ -59,6 +61,9 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		sas(&data);
 	else
+	{
 		printf("wrong number of arg !\n");
+		print_simple_line();
+	}
 	return (0);
 }

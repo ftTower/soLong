@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:18:23 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/18 22:05:37 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/20 10:08:48 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ void	reset_wave(t_data *data)
 	place_ennemy(data);
 	reset_collectibles(data);
 }
-
-
-
 
 void	shoot(t_data *data)
 {

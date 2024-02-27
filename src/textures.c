@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:34:39 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/19 19:54:40 by tauer            ###   ########.fr       */
+/*   Updated: 2024/02/21 12:12:11 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	set_right_breathing(t_data *data)
 {
 	data->textures.right_perso.next = &data->textures.right_perso_1;
 	data->textures.right_perso_1.next = &data->textures.right_perso_2;
-	data->textures.right_perso_2.next = &data->textures.right_perso;	
+	data->textures.right_perso_2.next = &data->textures.right_perso;
 }
 
 void	set_left_breathing(t_data *data)
 {
 	data->textures.left_perso.next = &data->textures.left_perso_1;
 	data->textures.left_perso_1.next = &data->textures.left_perso_2;
-	data->textures.left_perso_2.next = &data->textures.left_perso;	
+	data->textures.left_perso_2.next = &data->textures.left_perso;
 }
 
 void	set_running(t_data *data)
@@ -105,28 +105,33 @@ void	set_exit(t_data *data)
 
 void	set_textures(t_data *data)
 {
-	data->textures.perso = new_file_img("./img/perso/perso/perso.xpm",
-			data);
+	data->textures.perso = new_file_img("./img/perso/perso/perso.xpm", data);
 	data->textures.breathing_perso_1 = new_file_img("./img/perso/breathing_perso/breathing_1.xpm",
 			data);
 	data->textures.breathing_perso_2 = new_file_img("./img/perso/breathing_perso/breathing_2.xpm",
 			data);
-
-	data->textures.back_perso = new_file_img("./img/perso/perso/back_perso.xpm", data);
-	data->textures.back_perso_1 = new_file_img("./img/perso/back_breathing_perso/back_perso_1.xpm", data);
-	data->textures.back_perso_2 = new_file_img("./img/perso/back_breathing_perso/back_perso_2.xpm", data);
-
-	data->textures.right_perso = new_file_img("./img/perso/perso/right_perso.xpm", data);
-	data->textures.right_perso_1 = new_file_img("./img/perso/right_breathing_perso/right_perso_1.xpm", data);
-	data->textures.right_perso_2 = new_file_img("./img/perso/right_breathing_perso/right_perso_2.xpm", data);
-
-	data->textures.left_perso = new_file_img("./img/perso/perso/left_perso.xpm", data);
-	data->textures.left_perso_1 = new_file_img("./img/perso/left_breathing_perso/left_perso_1.xpm", data);
-	data->textures.left_perso_2 = new_file_img("./img/perso/left_breathing_perso/left_perso_2.xpm", data);
-
-	data->textures.running_1 = new_file_img("img/perso/running_perso/running_1.xpm", data);
-	data->textures.running_2 = new_file_img("img/perso/running_perso/running_2.xpm", data);
-
+	data->textures.back_perso = new_file_img("./img/perso/perso/back_perso.xpm",
+			data);
+	data->textures.back_perso_1 = new_file_img("./img/perso/back_breathing_perso/back_perso_1.xpm",
+			data);
+	data->textures.back_perso_2 = new_file_img("./img/perso/back_breathing_perso/back_perso_2.xpm",
+			data);
+	data->textures.right_perso = new_file_img("./img/perso/perso/right_perso.xpm",
+			data);
+	data->textures.right_perso_1 = new_file_img("./img/perso/right_breathing_perso/right_perso_1.xpm",
+			data);
+	data->textures.right_perso_2 = new_file_img("./img/perso/right_breathing_perso/right_perso_2.xpm",
+			data);
+	data->textures.left_perso = new_file_img("./img/perso/perso/left_perso.xpm",
+			data);
+	data->textures.left_perso_1 = new_file_img("./img/perso/left_breathing_perso/left_perso_1.xpm",
+			data);
+	data->textures.left_perso_2 = new_file_img("./img/perso/left_breathing_perso/left_perso_2.xpm",
+			data);
+	data->textures.running_1 = new_file_img("img/perso/running_perso/running_1.xpm",
+			data);
+	data->textures.running_2 = new_file_img("img/perso/running_perso/running_2.xpm",
+			data);
 	// exit
 	data->textures.exit_1 = new_file_img("./img/exit/exit_1.xpm", data);
 	data->textures.exit_2 = new_file_img("./img/exit/exit_open_2.xpm", data);
@@ -191,8 +196,6 @@ void	set_textures(t_data *data)
 			data);
 	data->textures.floor_ventil = new_file_img("./img/floor_cosmetics/floor_ventil.xpm",
 			data);
-	data->textures.floor_ventil = new_file_img("./img/floor_cosmetics/floor_ventil.xpm",
-			data);
 	data->textures.empty = new_file_img("./img/empty.xpm", data);
 	data->textures.floor = new_file_img("./img/floor.xpm", data);
 	data->textures.right_top_corner_up = new_file_img("./img/right_top_corner_up.xpm",
@@ -222,7 +225,14 @@ void	set_textures(t_data *data)
 	// data->textures.exit = new_file_img("./img/exit/exit.xpm", data);
 	// data->textures.exit_open = new_file_img("./img/exit/exit_open.xpm",
 	//		data);
-	data->textures.ennemy = new_file_img("./img/ennemy/ennemy.xpm", data);
+	data->textures.ennemy_front = new_file_img("./img/ennemy/ennemy_front/ennemy.xpm",
+			data);
+	data->textures.ennemy_back = new_file_img("./img/ennemy/ennemy_back/back_perso_1.xpm",
+			data);
+	data->textures.ennemy_left = new_file_img("./img/ennemy/ennemy_left/left_perso_1.xpm",
+			data);
+	data->textures.ennemy_right = new_file_img("./img/ennemy/ennemy_right/right_perso_1.xpm",
+			data);
 	data->textures.collectibles = new_file_img("./img/collectibles.xpm", data);
 	data->textures.capsule = new_file_img("./img/capsule_animation/capsule.xpm",
 			data);
@@ -245,6 +255,7 @@ void	set_textures(t_data *data)
 	set_screen_outdoor(data);
 	set_screen_indoor(data);
 	set_exit(data);
+	data->textures.current_ennemy = data->textures.ennemy_front;
 	data->textures.current_perso = data->textures.perso;
 	data->textures.current_capsule = data->textures.capsule;
 	data->textures.current_screen_outdoor = data->textures.wall_screen_outdoor;

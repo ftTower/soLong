@@ -6,14 +6,14 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/02/18 22:59:35 by tauer            ###   ########.fr        #
+#    Updated: 2024/02/20 08:50:12 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_DIR	=	src
 BUILD_DIR	=	build
 NAME		=	so_long
-CFLAG		=	-Wall -Wextra -I./header -I./minilibx-linux/ -lm -g3
+CFLAG		=	-Wall -Wextra -Werror -I./header -I./minilibx-linux/ -g3
 LDFLAGS 	= 	-L./minilibx-linux -lmlx_Linux -lmlx -lX11 -lXext
 SRC			=\
 			$(wildcard $(SRC_DIR)/*.c)
