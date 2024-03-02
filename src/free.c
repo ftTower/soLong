@@ -6,16 +6,11 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/21 17:45:06 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/01 20:37:59 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
-
-// void	free_all(t_data *data)
-// {
-
-// }
 
 void	destroy_img(t_data *data)
 {

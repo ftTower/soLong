@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/21 18:26:24 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/01 20:30:38 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,7 @@ typedef struct s_key
 	bool			left_key;
 	bool			shoot_key;
 }					t_key;
+
 
 typedef struct s_data
 {
