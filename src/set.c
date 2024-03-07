@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/21 17:17:26 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/07 19:10:10 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	settings(t_data *data)
 	data->mov_status = 1;
 	data->switcher = 0;
 	set_key_false(data);
-	set_textures(data);
+	prepare_textures(data);
 	custom_indoor_map(data);
 	return (1);
 }
