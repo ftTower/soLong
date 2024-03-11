@@ -6,29 +6,49 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:11:39 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:54:01 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:51:09 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void	putnbrimg(int move, int pos_y ,t_data *data)
+void	put_num(t_data *data)
 {
-	if (move > 9)
+	long	num;
+	char	*compteur;
+	int		i;
+
+	i = 0;
+	num = data->move;
+	compteur = ft_itoa(data->move);
+	while (compteur[i])
 	{
-		putnbrimg(move / 10,pos_y - 25, data);
-		putnbrimg(move % 10,pos_y - 25, data);
+		if (compteur[i] == '0')
+			put_img_to_img(data->base_image, data->textures.num0, 0, i * 25);
+		else if (compteur[i] == '1')
+			put_img_to_img(data->base_image, data->textures.num1, 0, i * 25);
+		else if (compteur[i] == '2')
+			put_img_to_img(data->base_image, data->textures.num2, 0, i * 25);
+		else if (compteur[i] == '3')
+			put_img_to_img(data->base_image, data->textures.num3, 0, i * 25);
+		else if (compteur[i] == '4')
+			put_img_to_img(data->base_image, data->textures.num4, 0, i * 25);
+		else if (compteur[i] == '5')
+			put_img_to_img(data->base_image, data->textures.num5, 0, i * 25);
+		else if (compteur[i] == '6')
+			put_img_to_img(data->base_image, data->textures.num6, 0, i * 25);
+		else if (compteur[i] == '7')
+			put_img_to_img(data->base_image, data->textures.num7, 0, i * 25);
+		else if (compteur[i] == '8')
+			put_img_to_img(data->base_image, data->textures.num8, 0, i * 25);
+		else if (compteur[i] == '9')
+			put_img_to_img(data->base_image, data->textures.num9, 0, i * 25);
+		i++;
 	}
-	
-	else
-	{
-		if (move == 0)
-			put_img_to_img(data->base_num, data->textures.num0, 25, pos_y);
-	}
+	free(compteur);
 }
 
 void	render_compteur(t_data *data)
 {
-	putnbrimg(data->move, 250, data);
-	mlx_put_image_to_window(data->mlx_num, data->win_num, data->base_num.img, 0, 0);
+	put_num(data);
 }

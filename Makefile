@@ -6,7 +6,7 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/03/10 23:44:39 by tauer            ###   ########.fr        #
+#    Updated: 2024/03/11 15:10:26 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@$(CC)	$(CFLAG)	-c	$< -o	$@
 	@clear
-	
-all: $(NAME)
+
+all : $(NAME)
 
 $(NAME):$(OBJ)
 	@echo $(OBJ)

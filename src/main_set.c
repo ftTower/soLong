@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:50:37 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:53:29 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,49 +58,35 @@ void	set_window_size(t_data *data)
 		write(1, "[BAD MAP SIZE]\n\n", 17);
 		printf("your map size [x:%d][y:%d]\n", data->size_x, data->size_y);
 		write(1, "max map size  [x:38][y: 21]\n", 28);
+		free_map(data->map);
 		exit(1);
 	}
 }
-void	set_key_false(t_data *data)
+
+
+void	data_maker(t_data *data)
 {
-	data->key.up_key = false;
-	data->key.down_key = false;
-	data->key.left_key = false;
-	data->key.right_key = false;
-	data->key.right_key = false;
-	data->key.shoot_key = false;
+	data->life_ennemy = 100;
+	data->shocking_win = 0;
+	data->mov_status = 1;
+	data->switcher = 0;
+	data->base_image = new_img(data->win_x, data->win_y, data);
+	set_key_false(data);
+	textures_loader(data);
+	custom_indoor_map(data);
 }
 
 int	settings(t_data *data)
 {
 	data->mlx = mlx_init();
-	data->mlx_num = mlx_init();
-	if (!data->mlx || !data->mlx_num)
+	if (!data->mlx)
 		close_win(data);
-	data->win_num = mlx_new_window(data->mlx_num, data->win_y_num,
-			data->win_x_num, "Moves");
-	if (!data->win_num)
-		return (0); //!a revoir free
 	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
 			"soooooLong");
 	if (!data->win)
-		return (free(data->mlx_num),0); //!a revoir free
-	data->base_image = new_img(data->win_x, data->win_y, data);
-	data->base_num = new_img_num(data->win_x_num, data->win_y_num, data);
-	data->life_ennemy = 100;
-	data->shocking_win = 0;
-	data->mov_status = 1;
-	data->switcher = 0;
-	set_key_false(data);
-	textures_loader(data);
-	custom_indoor_map(data);
+		close_win(data);
+	data_maker(data);
 	return (1);
-}
-
-void	set_win_num(t_data *data)
-{
-	data->win_y_num = 250;
-	data->win_x_num = 25;
 }
 
 void	pre_settings(t_data *data)
@@ -122,6 +108,5 @@ void	pre_settings(t_data *data)
 	data->collectibles = 0;
 	set_input(data);
 	set_window_size(data);
-	set_win_num(data);
 	data->collectibles_left = data->collectibles;
 }

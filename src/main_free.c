@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:52:09 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:54:05 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,19 +111,18 @@ void	destroy_img(t_data *data)
 	mlx_destroy_image(data->mlx, data->textures.num8.img);
 	mlx_destroy_image(data->mlx, data->textures.num9.img);
 	mlx_destroy_image(data->mlx, data->base_image.img);
-	mlx_destroy_image(data->mlx, data->base_num.img);
 }
 
 int	close_win(t_data *data)
 {
-	free_map(data->map);
+	if (data->map)
+		free_map(data->map);
 	destroy_img(data);
+	
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
-	mlx_destroy_window(data->mlx_num, data->win_num);
-	mlx_destroy_display(data->mlx_num);
-	free(data->mlx_num);
+	
 	exit(1);
 }
 

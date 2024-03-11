@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:14:57 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/21 18:27:13 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:02:25 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,32 +36,13 @@ void	delete_emptyness(t_data *data,char **map)
 	}
 }
 
-// char	*ft_strdup(const char *s)
-// {
-// 	size_t	len_s;
-// 	char	*str;
-// 	char	*ptr;
-
-// 	len_s = strlen(s);
-// 	str = (char *)malloc(sizeof(char) * (len_s + 1));
-// 	if (!str)
-// 		return (NULL);
-// 	ptr = str;
-// 	while (len_s-- > 0)
-// 		*str++ = *s++;
-// 	*str = '\0';
-// 	return (ptr);
-// }
-
-// size_t	ft_strlen(const char *str)
-// {
-// 	size_t i;
-
-// 	i = 0;
-// 	if (!str)
-// 		return (0);
-// 	while(str[i])
-// 		i++;
-// 	return (i);
-// }
-
+void	security(t_data *data)
+{
+	if (data->move >= __LONG_LONG_MAX__ || data->x >= __INT_MAX__
+		|| data->y >= __INT_MAX__ || data->mov_chunk_x >= __INT_MAX__
+		|| data->mov_chunk_y >= __INT_MAX__)
+	{
+		printf("[security] : variable out of range\n");
+		close_win(data);
+	}
+}

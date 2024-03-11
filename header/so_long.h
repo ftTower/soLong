@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:50:50 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 15:20:15 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -355,7 +355,7 @@ void	link_deco(t_data *data);
 void	link_perso(t_data *data);
 void	set_currents(t_data *data);
 
-
+void	security(t_data *data);
 
 void set_breathing(t_data *data);
 void set_capsule(t_data *data);
@@ -424,5 +424,7 @@ bool v_south_ea(t_data *data);
 
 size_t ft_strlen(const char *str);
 char **tab_tab_split(const char *s, char c);
+void	set_key_false(t_data *data);
+char	*ft_itoa(int nb);
 
 #endif
