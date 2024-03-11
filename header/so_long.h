@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/07 19:10:16 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 00:12:57 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,9 +332,15 @@ void init_wall_cosmetics(t_data *data);
 void init_floor(t_data *data);
 void init_ennemy(t_data *data);
 void init_rest(t_data *data);
+void	textures_loader(t_data *data);
 
 // animations
 void link_exit(t_data *data);
+void	link_deco(t_data *data);
+void	link_perso(t_data *data);
+void	set_currents(t_data *data);
+
+
 
 void set_breathing(t_data *data);
 void set_capsule(t_data *data);
@@ -360,6 +366,8 @@ void delete_emptyness(t_data *data, char **map);
 // window
 int close_win(t_data *data);
 
+
+void	player_death(t_data *data);
 // main
 int looper(t_data *data);
 

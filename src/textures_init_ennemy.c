@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_ennemy.c                                  :+:      :+:    :+:   */
+/*   textures_init_ennemy.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:56:40 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/07 19:07:55 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 00:05:31 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,3 @@ void    init_ennemy(t_data *data)
 			data);
 }
 
-void    init_rest(t_data *data)
-{
-	data->textures.collectibles = new_file_img("./img/collectibles.xpm", data);
-    
-}

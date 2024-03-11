@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_map.c                                     :+:      :+:    :+:   */
+/*   textures_init_map.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 18:47:43 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/07 18:53:40 by tauer            ###   ########.fr       */
+/*   Created: 2024/03/11 00:05:41 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/11 00:05:46 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ void init_floor(t_data *data)
 			data);
 	data->textures.empty = new_file_img("./img/empty.xpm", data);
 	data->textures.floor = new_file_img("./img/floor.xpm", data);
+}
+
+void    init_rest(t_data *data)
+{
+	data->textures.collectibles = new_file_img("./img/collectibles.xpm", data);
 }

@@ -6,20 +6,12 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:35:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/03 00:31:16 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 00:10:24 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void	player_death(t_data *data)
-{
-	if (data->wave == 1 && data->x == data->v_x && data->y == data->v_y && data->life_ennemy > 0)
-		{
-			printf("you died !\n");
-			close_win(data);
-		}
-}
 void	quick_loop(t_data *data)
 {
 	if (gettime() - data->time_render >= 16)

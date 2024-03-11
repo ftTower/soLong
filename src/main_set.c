@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/07 19:10:10 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 00:13:41 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,19 @@ int	settings(t_data *data)
 		close_win(data);
 	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
 			"soooooLong");
+	if (!data->win)
+		return (0); //!a revoir free
 	data->win_num = mlx_new_window(data->mlx_num, data->win_y_num,
 			data->win_x_num, "Moves");
 	if (!data->win || !data->win_num)
-		return (free(data->mlx), 1);
+		return (free(data->mlx), 1); //!a revoir free
 	data->base_image = new_img(data->win_x, data->win_y, data);
 	data->life_ennemy = 100;
 	data->shocking_win = 0;
 	data->mov_status = 1;
 	data->switcher = 0;
 	set_key_false(data);
-	prepare_textures(data);
+	textures_loader(data);
 	custom_indoor_map(data);
 	return (1);
 }
@@ -102,27 +104,20 @@ void	set_win_num(t_data *data)
 
 void	pre_settings(t_data *data)
 {
-	// map getting
 	data->map = get_map(data->map_path);
-	// print_map(data);
-	// textures
 	data->selecter_custom = 0;
-	// time
 	data->time_render = gettime();
 	data->time_perso = gettime();
 	data->time_capsule = gettime();
 	data->time_ennemy = gettime();
-	// movement
 	data->move = 0;
 	data->mov_chunk_x = 20;
 	data->mov_chunk_y = 20;
 	data->chunk_v_x = 20;
 	data->chunk_v_y = 20;
 	data->switcher = 1;
-	// gameplay
 	data->wave = 0;
 	find_first_border(data);
-	// counting_init
 	data->collectibles = 0;
 	set_input(data);
 	set_window_size(data);

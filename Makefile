@@ -6,7 +6,7 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/03/01 20:33:38 by tauer            ###   ########.fr        #
+#    Updated: 2024/03/10 23:44:39 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,13 @@ fclean : clean
 	@rm -f $(NAME)
 	@echo "Clean   : ./$(NAME)"
 
-aclean : fclean cleanlib
+aclean : fclean cleanlib clear
 
 minlibx :
 	@git clone https://github.com/42Paris/minilibx-linux.git
 	@make -C ./minilibx-linux
+	clear
 	
-
 cleanlib :
 	@rm -rf minilibx-linux
 
