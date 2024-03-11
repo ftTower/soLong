@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 09:54:49 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:43:36 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	render_stats(t_data *data, int x)
 	}
 	if (x == 5)
 	{
-		printf("\033[48;5;248m  moves             [%lld] \033[0m", data->move);
+		printf("\033[48;5;248m  moves             [%ld] \033[0m", data->move);
 		stats(data->move);
 	}
 	if (x == 6)

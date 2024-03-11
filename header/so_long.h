@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:12:57 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:50:50 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,17 @@ typedef struct s_textures
 	t_img current_screen_outdoor;
 	t_img current_screen_indoor;
 
+	t_img num0;
+	t_img num1;
+	t_img num2;
+	t_img num3;
+	t_img num4;
+	t_img num5;
+	t_img num6;
+	t_img num7;
+	t_img num8;
+	t_img num9;
+
 } t_textures;
 
 typedef struct s_key
@@ -179,7 +190,7 @@ typedef struct s_data
 
 	int collectibles;
 	int collectibles_left;
-	long long move;
+	long move;
 
 	int wave;
 
@@ -221,6 +232,7 @@ typedef struct s_data
 	clock_t time_capsule;
 
 	t_img base_image;
+	t_img base_num;
 	t_textures textures;
 	t_key key;
 } t_data;
@@ -320,9 +332,11 @@ void set_window_size(t_data *data);
 int settings(t_data *data);
 void pre_settings(t_data *data);
 
-// textures
-void init_perso(t_data *data);
+t_img	new_img_num(int w, int h, t_data *data);
 
+// textures
+int init_num(t_data *data);
+void init_perso(t_data *data);
 void init_exit(t_data *data);
 void init_screen_indoor(t_data *data);
 void init_screen_outdoor(t_data *data);
@@ -333,6 +347,7 @@ void init_floor(t_data *data);
 void init_ennemy(t_data *data);
 void init_rest(t_data *data);
 void	textures_loader(t_data *data);
+void	render_compteur(t_data *data);
 
 // animations
 void link_exit(t_data *data);
@@ -362,6 +377,7 @@ void loops(t_data *data);
 // utils
 clock_t gettime(void);
 void delete_emptyness(t_data *data, char **map);
+char	**ft_split(char *s, char c);
 
 // window
 int close_win(t_data *data);

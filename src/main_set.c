@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set.c                                              :+:      :+:    :+:   */
+/*   main_set.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:13:41 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:50:37 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,16 @@ int	settings(t_data *data)
 	data->mlx_num = mlx_init();
 	if (!data->mlx || !data->mlx_num)
 		close_win(data);
+	data->win_num = mlx_new_window(data->mlx_num, data->win_y_num,
+			data->win_x_num, "Moves");
+	if (!data->win_num)
+		return (0); //!a revoir free
 	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
 			"soooooLong");
 	if (!data->win)
-		return (0); //!a revoir free
-	data->win_num = mlx_new_window(data->mlx_num, data->win_y_num,
-			data->win_x_num, "Moves");
-	if (!data->win || !data->win_num)
-		return (free(data->mlx), 1); //!a revoir free
+		return (free(data->mlx_num),0); //!a revoir free
 	data->base_image = new_img(data->win_x, data->win_y, data);
+	data->base_num = new_img_num(data->win_x_num, data->win_y_num, data);
 	data->life_ennemy = 100;
 	data->shocking_win = 0;
 	data->mov_status = 1;

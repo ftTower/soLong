@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:34:39 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:11:51 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:25:16 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	init_textures(t_data *data)
 	init_floor(data);
 	init_ennemy(data);
 	init_rest(data);
+	init_num(data);
 }
 
 void	textures_loader(t_data *data)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   main_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:16:16 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:52:09 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,23 @@ void	destroy_img(t_data *data)
 	mlx_destroy_image(data->mlx, data->textures.wall_screen_indoor_8.img);
 	mlx_destroy_image(data->mlx, data->textures.floor_x.img);
 	mlx_destroy_image(data->mlx, data->textures.floor_ventil.img);
+	mlx_destroy_image(data->mlx, data->textures.num0.img);
+	mlx_destroy_image(data->mlx, data->textures.num1.img);
+	mlx_destroy_image(data->mlx, data->textures.num2.img);
+	mlx_destroy_image(data->mlx, data->textures.num3.img);
+	mlx_destroy_image(data->mlx, data->textures.num4.img);
+	mlx_destroy_image(data->mlx, data->textures.num5.img);
+	mlx_destroy_image(data->mlx, data->textures.num6.img);
+	mlx_destroy_image(data->mlx, data->textures.num7.img);
+	mlx_destroy_image(data->mlx, data->textures.num8.img);
+	mlx_destroy_image(data->mlx, data->textures.num9.img);
 	mlx_destroy_image(data->mlx, data->base_image.img);
+	mlx_destroy_image(data->mlx, data->base_num.img);
 }
 
 int	close_win(t_data *data)
 {
-	if (data->map)
-		free_map(data->map);
+	free_map(data->map);
 	destroy_img(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);

@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+// #include "get_next_line.h"
+#include "../header/so_long.h"
 
 void	extract_line(t_list *stash, char **line)
 {

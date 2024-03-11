@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+// #include "get_next_line.h"
+#include "../header/so_long.h"
 
 t_list *ft_lst_get_last(t_list *stash)
 {

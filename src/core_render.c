@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   core_render.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:27:02 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/01 20:40:23 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:42:32 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -291,5 +291,6 @@ void	global_render(t_data *data)
 	if (data->wave > 0 && data->life_ennemy > 0)
 		render_ennemy(data, data->base_image, data->textures.current_ennemy);
 	render_perso(data, data->base_image, data->textures.current_perso);
-	render_terminal(data);
+	//render_terminal(data);
+	render_compteur(data);
 }

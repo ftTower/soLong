@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   img.c                                              :+:      :+:    :+:   */
+/*   core_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:40:26 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/10 23:54:51 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/11 12:50:09 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ t_img	new_img(int w, int h, t_data *data)
 	t_img	image;
 
 	image.img = mlx_new_image(data->mlx, w, h);
+	image.addr = mlx_get_data_addr(image.img, &(image.bits_per_pixel),
+			&(image.line_length), &(image.endian));
+	image.w = w;
+	image.h = h;
+	return (image);
+}
+
+t_img	new_img_num(int w, int h, t_data *data)
+{
+	t_img	image;
+
+	image.img = mlx_new_image(data->mlx_num, w, h);
 	image.addr = mlx_get_data_addr(image.img, &(image.bits_per_pixel),
 			&(image.line_length), &(image.endian));
 	image.w = w;
