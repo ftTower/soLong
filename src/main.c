@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 16:09:13 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/12 08:14:37 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	data.map_path = argv[1];
 	if (argc == 2)
+	{
+		data.map_path = argv[1];
 		sas(&data);
+	}
 	else
 	{
 		data.map_path = "./map/error/wrong_arg.ber";
