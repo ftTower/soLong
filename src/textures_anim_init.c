@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:34:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/13 15:23:11 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 00:43:40 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ void	init_exit(t_data *data)
 		"./img/exit/exit_1.xpm");
 	add_img_to_garbage_memory(data, &data->textures.exit_2, "exit_2",
 		"./img/exit/exit_open_2.xpm");
+	add_img_to_garbage_memory(data, &data->textures.exit_3, "exit_3",
+		"./img/exit/exit_open_3.xpm");
+		add_img_to_garbage_memory(data, &data->textures.exit_4, "exit_4",
+		"./img/exit/exit_open_4.xpm");
+	add_img_to_garbage_memory(data, &data->textures.exit_5, "exit_5",
+		"./img/exit/exit_open_5.xpm");
 	// data->textures.exit_2 = new_file_img("./img/exit/exit_open_2.xpm", data);
-	data->textures.exit_3 = new_file_img("./img/exit/exit_open_3.xpm", data);
-	data->textures.exit_4 = new_file_img("./img/exit/exit_open_4.xpm", data);
-	data->textures.exit_5 = new_file_img("./img/exit/exit_open_5.xpm", data);
+	// data->textures.exit_3 = new_file_img("./img/exit/exit_open_3.xpm", data);
+	// data->textures.exit_4 = new_file_img("./img/exit/exit_open_4.xpm", data);
+	// data->textures.exit_5 = new_file_img("./img/exit/exit_open_5.xpm", data);
 	data->textures.exit_6 = new_file_img("./img/exit/exit_open_6.xpm", data);
 	data->textures.exit_7 = new_file_img("./img/exit/exit_open_7.xpm", data);
 	data->textures.exit_8 = new_file_img("./img/exit/exit_open_8.xpm", data);

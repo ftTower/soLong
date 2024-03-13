@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/13 15:22:06 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 00:44:11 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name, char *p
 	}
 	else if (data->memory->ptr)
 	{
-		write(1, "cc\n", 3);
 		memory_temp = data->memory;
 		memory_element->name = name;
 		memory_element->path = path;
@@ -68,17 +67,18 @@ bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name, char *p
 bool	clean_garbage_memory(t_data *data)
 {
 	t_memory *memory_current;
+	t_memory *temp;
 	
 	if (!data->memory)
 		return (false);
 	memory_current = data->memory;
 	while (memory_current)
 	{
+		temp = memory_current->next;
 		printf("destroyed [%d] %s [%p] %p\n", memory_current->index, memory_current->name, memory_current->ptr, memory_current->next);
 		mlx_destroy_image(data->mlx, memory_current->ptr);
-		// free(memory_current);
-		memory_current = memory_current->next;
+		free(memory_current);
+		memory_current = temp;
 	}
-	free(data->memory);
 	return (true);
 }

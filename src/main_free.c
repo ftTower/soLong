@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/13 15:11:09 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 00:43:50 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	destroy_img(t_data *data)
 	mlx_destroy_image(data->mlx, data->textures.capsule_5.img);
 	// mlx_destroy_image(data->mlx, data->textures.exit_1.img);
 	// mlx_destroy_image(data->mlx, data->textures.exit_2.img);
-	mlx_destroy_image(data->mlx, data->textures.exit_3.img);
-	mlx_destroy_image(data->mlx, data->textures.exit_4.img);
-	mlx_destroy_image(data->mlx, data->textures.exit_5.img);
+	// mlx_destroy_image(data->mlx, data->textures.exit_3.img);
+	// mlx_destroy_image(data->mlx, data->textures.exit_4.img);
+	// mlx_destroy_image(data->mlx, data->textures.exit_5.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_6.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_7.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_8.img);
