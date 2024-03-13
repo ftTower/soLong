@@ -46,3 +46,18 @@ custom_indoor_wall()
 
 
 new_border_textures()
+
+custom_indoor_map()
+{
+	//INPUT FROM MAP
+	E == exit
+	D == decoration
+
+	//WALLS CONNECTIONS
+	e == haut bas gauche droite
+	f == haut 	  gauche droite
+	b ==      bas gauche droite
+	p == haut bas        droite
+	q == haut bas gauche
+	
+}
