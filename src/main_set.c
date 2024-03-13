@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 15:53:29 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/13 14:25:58 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	data_maker(t_data *data)
 	data->switcher = 0;
 	data->base_image = new_img(data->win_x, data->win_y, data);
 	set_key_false(data);
+	init_garbage_memory(data);
 	textures_loader(data);
 	custom_indoor_map(data);
 }

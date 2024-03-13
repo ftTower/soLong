@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   textures_various.c                                 :+:      :+:    :+:   */
+/*   textures_anim_init.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:34:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/07 18:45:27 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:23:11 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void    init_exit(t_data *data)
+void	init_exit(t_data *data)
 {
-    data->textures.exit_1 = new_file_img("./img/exit/exit_1.xpm", data);
-	data->textures.exit_2 = new_file_img("./img/exit/exit_open_2.xpm", data);
+	add_img_to_garbage_memory(data, &data->textures.exit_1, "exit_1",
+		"./img/exit/exit_1.xpm");
+	add_img_to_garbage_memory(data, &data->textures.exit_2, "exit_2",
+		"./img/exit/exit_open_2.xpm");
+	// data->textures.exit_2 = new_file_img("./img/exit/exit_open_2.xpm", data);
 	data->textures.exit_3 = new_file_img("./img/exit/exit_open_3.xpm", data);
 	data->textures.exit_4 = new_file_img("./img/exit/exit_open_4.xpm", data);
 	data->textures.exit_5 = new_file_img("./img/exit/exit_open_5.xpm", data);
@@ -35,9 +38,9 @@ void    init_exit(t_data *data)
 	data->textures.exit_19 = new_file_img("./img/exit/exit_open_19.xpm", data);
 }
 
-void    init_screen_indoor(t_data *data)
+void	init_screen_indoor(t_data *data)
 {
-    data->textures.wall_screen_indoor = new_file_img("./img/wall_screen_animation/wall_screen_indoor.xpm",
+	data->textures.wall_screen_indoor = new_file_img("./img/wall_screen_animation/wall_screen_indoor.xpm",
 			data);
 	data->textures.wall_screen_indoor_1 = new_file_img("./img/wall_screen_animation/wall_screen_indoor_1.xpm",
 			data);

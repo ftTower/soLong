@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:40:26 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:50:09 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/13 12:49:01 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,19 @@ t_img new_file_img(char * path, t_data *data)
 
 	image.img = mlx_xpm_file_to_image(data->mlx, path, &image.w, &image.h);
 	if (!image.img)
+	{
+		image.img = NULL;
 		write(2, "File could not be read\n", 23);
+	}
 	else
 	{
 		image.addr = mlx_get_data_addr(image.img, &(image.bits_per_pixel),
 			&(image.line_length), &(image.endian));
 		if (!image.addr)
+		{
+			image.addr = NULL;
 			write(2, "Addr could not be get\n", 23);
+		}
 	}
 	return (image);
 }

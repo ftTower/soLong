@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 15:54:05 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/13 15:11:09 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	destroy_img(t_data *data)
 	mlx_destroy_image(data->mlx, data->textures.capsule_3.img);
 	mlx_destroy_image(data->mlx, data->textures.capsule_4.img);
 	mlx_destroy_image(data->mlx, data->textures.capsule_5.img);
-	mlx_destroy_image(data->mlx, data->textures.exit_1.img);
-	mlx_destroy_image(data->mlx, data->textures.exit_2.img);
+	// mlx_destroy_image(data->mlx, data->textures.exit_1.img);
+	// mlx_destroy_image(data->mlx, data->textures.exit_2.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_3.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_4.img);
 	mlx_destroy_image(data->mlx, data->textures.exit_5.img);
@@ -118,7 +118,7 @@ int	close_win(t_data *data)
 	if (data->map)
 		free_map(data->map);
 	destroy_img(data);
-	
+	clean_garbage_memory(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

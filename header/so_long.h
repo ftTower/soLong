@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 15:20:15 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/13 14:25:36 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,15 @@ typedef struct s_key
 	bool shoot_key;
 } t_key;
 
+typedef struct s_memory
+{
+	int index;
+	char *path;
+	char *name;
+	void *ptr;
+	struct s_memory *next;
+}	t_memory;
+
 typedef struct s_data
 {
 	void *mlx;
@@ -235,6 +244,7 @@ typedef struct s_data
 	t_img base_num;
 	t_textures textures;
 	t_key key;
+	t_memory *memory;
 } t_data;
 
 typedef enum t_dir
@@ -426,5 +436,9 @@ size_t ft_strlen(const char *str);
 char **tab_tab_split(const char *s, char c);
 void	set_key_false(t_data *data);
 char	*ft_itoa(int nb);
+
+bool	init_garbage_memory(t_data *data);
+bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name, char *path);
+bool	clean_garbage_memory(t_data *data);
 
 #endif
