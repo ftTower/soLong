@@ -6,21 +6,25 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:56:40 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:05:31 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 17:58:16 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void    init_ennemy(t_data *data)
+bool	init_ennemy(t_data *data)
 {
-    data->textures.ennemy_front = new_file_img("./img/ennemy/ennemy_front/ennemy.xpm",
-			data);
-	data->textures.ennemy_back = new_file_img("./img/ennemy/ennemy_back/back_perso_1.xpm",
-			data);
-	data->textures.ennemy_left = new_file_img("./img/ennemy/ennemy_left/left_perso_1.xpm",
-			data);
-	data->textures.ennemy_right = new_file_img("./img/ennemy/ennemy_right/right_perso_1.xpm",
-			data);
+	printf("=========================================================================================\n| ENNEMY_TEXTURES\n=========================================================================================\n");
+	add_img_to_garbage_memory(data, &data->textures.ennemy_front,
+		"enemy_front\t      ", "./img/ennemy/ennemy_front/ennemy.xpm");
+	add_img_to_garbage_memory(data, &data->textures.ennemy_back,
+		"enemy_back\t      ", "./img/ennemy/ennemy_back/back_perso_1.xpm");
+	add_img_to_garbage_memory(data, &data->textures.ennemy_left,
+		"enemy_back\t      ", "./img/ennemy/ennemy_left/left_perso_1.xpm");
+	add_img_to_garbage_memory(data, &data->textures.ennemy_right,
+		"enemy_right\t      ", "./img/ennemy/ennemy_right/right_perso_1.xpm");
+	if (!data->textures.ennemy_front.img || !data->textures.ennemy_back.img
+		|| !data->textures.ennemy_left.img || !data->textures.ennemy_right.img)
+		return (false);
+	return (true);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 14:11:39 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/12 08:10:57 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 18:59:39 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	put_num(t_data *data)
 	int		i;
 
 	i = 0;
+	compteur = NULL;
 	compteur = ft_itoa(data->move);
 	while (compteur[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/13 14:25:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 19:31:07 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ typedef struct s_key
 
 typedef struct s_memory
 {
-	int index;
+	// int index;
 	char *path;
 	char *name;
 	void *ptr;
@@ -239,6 +239,7 @@ typedef struct s_data
 	clock_t time_perso;
 	clock_t time_ennemy;
 	clock_t time_capsule;
+	clock_t time_start;
 
 	t_img base_image;
 	t_img base_num;
@@ -345,17 +346,17 @@ void pre_settings(t_data *data);
 t_img	new_img_num(int w, int h, t_data *data);
 
 // textures
-int init_num(t_data *data);
-void init_perso(t_data *data);
-void init_exit(t_data *data);
-void init_screen_indoor(t_data *data);
-void init_screen_outdoor(t_data *data);
-void init_capsule(t_data *data);
-void init_walls(t_data *data);
-void init_wall_cosmetics(t_data *data);
-void init_floor(t_data *data);
-void init_ennemy(t_data *data);
-void init_rest(t_data *data);
+bool init_num(t_data *data);
+bool init_perso(t_data *data);
+bool init_exit(t_data *data);
+bool init_screen_indoor(t_data *data);
+bool init_screen_outdoor(t_data *data);
+bool init_capsule(t_data *data);
+bool init_walls(t_data *data);
+bool init_wall_cosmetics(t_data *data);
+bool init_floor(t_data *data);
+bool init_ennemy(t_data *data);
+bool init_rest(t_data *data);
 void	textures_loader(t_data *data);
 void	render_compteur(t_data *data);
 
@@ -439,6 +440,6 @@ char	*ft_itoa(int nb);
 
 bool	init_garbage_memory(t_data *data);
 bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name, char *path);
-bool	clean_garbage_memory(t_data *data);
+bool	clean_garbage_memory(t_data *data, int mode);
 
 #endif

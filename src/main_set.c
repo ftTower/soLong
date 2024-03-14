@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/13 14:25:58 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 19:20:27 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	pre_settings(t_data *data)
 	data->time_perso = gettime();
 	data->time_capsule = gettime();
 	data->time_ennemy = gettime();
+	data->time_start = gettime();
 	data->move = 0;
 	data->mov_chunk_x = 20;
 	data->mov_chunk_y = 20;
