@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:32:16 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:22:49 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	destroy_img(t_data *data)
 
 int	close_win(t_data *data)
 {
-	if (data->map)
-		free_map(data->map);
+	free_map(data->map);
 	destroy_img(data);
 	clean_garbage_memory(data, (int)data->move);
+	
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

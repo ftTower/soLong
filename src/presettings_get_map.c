@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:20:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:01:25 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 20:19:37 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ char	**get_map(char *path)
 	// printf("map_line : %s\n", map_line);
 	free(line);
 	close(fd);
-	return (ft_split(map_line, '\n'));
+	return (ft_split(map_line, '\n', 1));
 }
 
 int	count_line(int fd)

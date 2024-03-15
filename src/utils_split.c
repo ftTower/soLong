@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:34:28 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:05:48 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 20:19:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned long	len_tab(char **tab)
 	return (x);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char *s, char c, int mode)
 {
 	char	**tab_split;
 
@@ -32,7 +32,8 @@ char	**ft_split(char *s, char c)
 	tab_split = tab_tab_split(s, c);
 	if (!tab_split)
 		return (NULL);
-	free(s);
+	if (mode == 1)
+		free(s);
 	return (tab_split);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:20:27 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:40:57 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,36 +63,42 @@ void	set_window_size(t_data *data)
 	}
 }
 
-
-void	data_maker(t_data *data)
+bool	data_maker(t_data *data)
 {
 	data->life_ennemy = 100;
 	data->shocking_win = 0;
 	data->mov_status = 1;
 	data->switcher = 0;
-	data->base_image = new_img(data->win_x, data->win_y, data);
-	set_key_false(data);
-	init_garbage_memory(data);
-	textures_loader(data);
+	data->base_image = new_img(data->win_x, data->win_y, data); //! malloc
+	if (!data->base_image.img)
+		return (free_map(data->map), mlx_destroy_window(data->mlx, data->win),
+			mlx_destroy_display(data->mlx), free(data->mlx), false);
+	if (!init_garbage_memory(data)) //! malloc
+		close_win(data);
+	textures_loader(data); //! malloc
 	custom_indoor_map(data);
+	return (true);
 }
 
-int	settings(t_data *data)
+bool	settings(t_data *data)
 {
-	data->mlx = mlx_init();
+	data->mlx = mlx_init(); //! malloc
 	if (!data->mlx)
-		close_win(data);
+		return (free_map(data->map), false);
 	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
 			"soooooLong");
 	if (!data->win)
-		close_win(data);
+		return (free_map(data->map), mlx_destroy_display(data->mlx),
+			free(data->mlx), false);
 	data_maker(data);
-	return (1);
+	return (true);
 }
 
-void	pre_settings(t_data *data)
+bool	pre_settings(t_data *data)
 {
-	data->map = get_map(data->map_path);
+	data->map = get_map(data->map_path); //! malloc
+	if (!data->map)
+		return (true);
 	data->selecter_custom = 0;
 	data->time_render = gettime();
 	data->time_perso = gettime();
@@ -106,9 +112,11 @@ void	pre_settings(t_data *data)
 	data->chunk_v_y = 20;
 	data->switcher = 1;
 	data->wave = 0;
-	find_first_border(data);
 	data->collectibles = 0;
+	set_key_false(data);
+	find_first_border(data);
 	set_input(data);
 	set_window_size(data);
 	data->collectibles_left = data->collectibles;
+	return (false);
 }

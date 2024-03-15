@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:27:02 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/15 01:14:04 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:50:57 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -310,10 +310,10 @@ void global_render(t_data *data)
 	render(data);
 	render_perso(data, data->base_image, data->textures.current_perso);
 	render_compteur(data);
-	if (gettime() - data->time_start > 500 && gettime() - data->time_start <= 1500)
-		printf("\033c\n\n\n\n\n\t\t✅ TEXTURES\n\n\n\n\n");
-	else if (gettime() - data->time_start > 1500)
-		render_terminal(data);
+	// if (gettime() - data->time_start > 500 && gettime() - data->time_start <= 1500)
+	// 	printf("\033c\n\n\n\n\n\t\t✅ TEXTURES\n\n\n\n\n");
+	// else if (gettime() - data->time_start > 1500)
+	// 	render_terminal(data);
 
 	if (data->wave > 0 && data->life_ennemy > 0)
 		render_ennemy(data, data->base_image, data->textures.current_ennemy);

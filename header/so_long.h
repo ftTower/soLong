@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:31:07 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 20:19:19 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ typedef struct s_memory
 	// int index;
 	char *path;
 	char *name;
+	char *id;
 	void *ptr;
 	struct s_memory *next;
 }	t_memory;
@@ -340,8 +341,8 @@ void set_ennemy_by_waves(t_data *data);
 // set
 void set_input(t_data *data);
 void set_window_size(t_data *data);
-int settings(t_data *data);
-void pre_settings(t_data *data);
+bool settings(t_data *data);
+bool pre_settings(t_data *data);
 
 t_img	new_img_num(int w, int h, t_data *data);
 
@@ -388,7 +389,7 @@ void loops(t_data *data);
 // utils
 clock_t gettime(void);
 void delete_emptyness(t_data *data, char **map);
-char	**ft_split(char *s, char c);
+char	**ft_split(char *s, char c, int mode);
 
 // window
 int close_win(t_data *data);
@@ -439,7 +440,7 @@ void	set_key_false(t_data *data);
 char	*ft_itoa(int nb);
 
 bool	init_garbage_memory(t_data *data);
-bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name, char *path);
+bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name);
 bool	clean_garbage_memory(t_data *data, int mode);
 
 #endif

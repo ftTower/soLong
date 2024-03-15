@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:23:15 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/15 19:28:12 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static int	core(t_data *data)
 
 void	sas(t_data *data)
 {
-	pre_settings(data); //!a revoir return
+	if (pre_settings(data))
+		return ;
 	if (map_ok(data) && settings(data))
 		core(data);
 	else
@@ -37,6 +38,7 @@ void	sas(t_data *data)
 		printf("[FAILURE]\n");
 		print_simple_line();
 		free_map(data->map);
+		return ;
 	}
 	close_win(data);
 }
