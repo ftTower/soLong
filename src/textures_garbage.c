@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:38:43 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/14 23:16:50 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name,
 	*new_img = new_file_img(path, data);
 	if (!(*new_img).img)
 	{
-		printf("| ⛔ : \033[38;5;160m%s\033[0m | \033[38;5;160m(nil)\033[0m | \033[38;5;160m%s\033[0m\n",
+		printf("| ⛔ : \033[38;5;160m%s\033[0m | \033[38;5;160m(nil)\033[0m\t\t| \033[38;5;160m%s\033[0m\n",
 			name, path);
 		// printf("failed to load [%s - %s]\n", name, path);
 		return (false);
@@ -86,6 +86,6 @@ bool	clean_garbage_memory(t_data *data, int mode)
 		memory_current = temp;
 	}
 	if (mode != -1)
-		printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\tyou finished wave %d !\n\n\n\n\n", data->wave);
+		printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\tyou finished wave \033[38;5;125m%d\033[0m !\n\n\n\n\n", data->wave);
 	return (true);
 }
