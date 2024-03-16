@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/15 19:40:57 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 18:32:33 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ bool	pre_settings(t_data *data)
 	set_key_false(data);
 	find_first_border(data);
 	set_input(data);
-	set_window_size(data);
 	data->collectibles_left = data->collectibles;
+	set_window_size(data);
 	return (false);
 }

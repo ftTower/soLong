@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/16 09:31:05 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 18:29:40 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,8 @@ void debug_map(char **map)
 	{
 		y = 0;
 		while (map[x][y])
-		{
-			printf("|");
-			if (map[x][y] == '0')
-				printf(".");
-			else
-				printf("%c", map[x][y]);
+		{	
+			printf("%c", map[x][y]);
 			y++;
 		}
 		printf("|");
@@ -185,13 +181,13 @@ void print_simple_line(void)
 
 void render_terminal(t_data *data)
 {
-	if (gettime() - data->time_start > 500 && gettime() - data->time_start <= 1500)
-		printf("\033c\n\n\n\n\n\t\t✅ TEXTURES\n\n\n\n\n");
+	// if (gettime() - data->time_start > 500 && gettime() - data->time_start <= 1500)
+	// 	printf("\033c\n\n\n\n\n\t\t✅ TEXTURES\n\n\n\n\n");
 	
-	else if (gettime() - data->time_start > 1500)
+	if (gettime() - data->time_start > 1500)
 	{
-		printf("\033c");
-		//core_terminal(data);
-		debug_map(data->map);
+		// printf("\033c");
+		core_terminal(data);
+		//debug_map(data->map);
 	}
 }

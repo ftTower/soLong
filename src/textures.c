@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 14:34:39 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:30:43 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 14:51:23 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	init_textures(t_data *data)
 	if (!init_perso(data) || !init_exit(data) || !init_screen_indoor(data)
 		|| !init_screen_outdoor(data) || !init_capsule(data)
 		|| !init_walls(data) || !init_wall_cosmetics(data)
-		|| !init_wall_cosmetics(data) || !init_floor(data) || !init_ennemy(data)
+		|| !init_floor(data) || !init_ennemy(data)
 		|| !init_rest(data) || !init_num(data))
 		checker++;
 	return (checker > 0);

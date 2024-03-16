@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:27:16 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/27 03:08:01 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 14:35:33 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	reset_collectibles(t_data *data)
 	y = 0;
 
 	dup = get_map(data->map_path);
-	//print_map2(dup);
+	if (!dup)
+		return ;
 	while(dup[x])
 	{
 		y = 0;
@@ -37,4 +38,5 @@ void	reset_collectibles(t_data *data)
 		}
 		x++;
 	}
+	free_map(dup);
 }

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/15 20:19:19 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 17:36:49 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ typedef struct s_memory
 	char *name;
 	char *id;
 	void *ptr;
+	t_img *img;
 	struct s_memory *next;
 }	t_memory;
 

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:11:20 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:11:28 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 18:29:06 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	quick_next(t_data *data)
 	data->textures.current_screen_indoor = *data->textures.current_screen_indoor.next;
 	if (data->collectibles_left == 0)
 		data->textures.current_exit = *data->textures.current_exit.next;
+	else
+		data->textures.current_exit = data->textures.exit_1;
 }
 
 void	medium_next(t_data *data)
