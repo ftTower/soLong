@@ -6,16 +6,16 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:43:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/16 09:31:05 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void	print_map(t_data *data)
+void print_map(t_data *data)
 {
-	int	x;
-	int	y;
+	int x;
+	int y;
 
 	if (!data->map)
 	{
@@ -41,10 +41,10 @@ void	print_map(t_data *data)
 		x++;
 	}
 }
-void	debug_map(char **map)
+void debug_map(char **map)
 {
-	int	x;
-	int	y;
+	int x;
+	int y;
 
 	x = 0;
 	y = 0;
@@ -68,7 +68,7 @@ void	debug_map(char **map)
 	print_simple_line();
 }
 
-void	stats(int unite)
+void stats(int unite)
 {
 	if (unite >= 0 && unite <= 9)
 		printf("\033[48;5;248m   \033[0m\033[0;47m\033[0m");
@@ -78,12 +78,12 @@ void	stats(int unite)
 		printf("\033[48;5;248m \033\033[0;47m\033[0m");
 }
 
-void	render_stats(t_data *data, int x)
+void render_stats(t_data *data, int x)
 {
 	if (x == 0)
 	{
 		printf("\033[48;5;248m    coords : [%d] - [%d]     \033[0m", data->x,
-			data->y);
+			   data->y);
 		/// stats(data->y);
 	}
 	if (x == 1)
@@ -93,13 +93,13 @@ void	render_stats(t_data *data, int x)
 	if (x == 3)
 	{
 		printf("\033[48;5;248m  collectibles      [%d] \033[0m",
-			data->collectibles);
+			   data->collectibles);
 		stats(data->collectibles);
 	}
 	if (x == 4)
 	{
 		printf("\033[48;5;248m  collectibles left [%d] \033[0m",
-			data->collectibles_left);
+			   data->collectibles_left);
 		stats(data->collectibles_left);
 	}
 	if (x == 5)
@@ -114,7 +114,7 @@ void	render_stats(t_data *data, int x)
 	}
 	if (x == 7)
 		printf("\033[48;5;248m  map size  : [%d x %d]    \033[0m", data->size_x,
-			data->size_y);
+			   data->size_y);
 	if (x == 8)
 		printf("\033[48;5;248m                           \033[0m");
 	if (x == 9)
@@ -124,10 +124,10 @@ void	render_stats(t_data *data, int x)
 	printf("\033[0;47m  \033[0m");
 }
 
-void	core_terminal(t_data *data)
+void core_terminal(t_data *data)
 {
-	int	x;
-	int	y;
+	int x;
+	int y;
 
 	x = 0;
 	y = 0;
@@ -139,8 +139,7 @@ void	core_terminal(t_data *data)
 		while (data->map[x][y])
 		{
 			// printf("");
-			if ((data->map[x][y] >= 'a' && data->map[x][y] <= 'z')
-				|| data->map[x][y] == '1')
+			if ((data->map[x][y] >= 'a' && data->map[x][y] <= 'z') || data->map[x][y] == '1')
 				printf("\033[48;5;240m  \033[0m");
 			// printf("%c", data->map[x][y]);
 			else if (data->map[x][y] == 'V')
@@ -169,9 +168,9 @@ void	core_terminal(t_data *data)
 	print_line(data);
 }
 
-void	print_line(t_data *data)
+void print_line(t_data *data)
 {
-	int	i;
+	int i;
 
 	i = data->size_y + 14;
 	while (i-- >= 0)
@@ -179,14 +178,20 @@ void	print_line(t_data *data)
 	printf("     \n\033[0m");
 }
 
-void	print_simple_line(void)
+void print_simple_line(void)
 {
 	write(1, "======================================================================\n", 72);
 }
 
-void	render_terminal(t_data *data)
+void render_terminal(t_data *data)
 {
-	printf("\033c");
-	core_terminal(data);
-	//debug_map(data->map);
+	if (gettime() - data->time_start > 500 && gettime() - data->time_start <= 1500)
+		printf("\033c\n\n\n\n\n\t\t✅ TEXTURES\n\n\n\n\n");
+	
+	else if (gettime() - data->time_start > 1500)
+	{
+		printf("\033c");
+		//core_terminal(data);
+		debug_map(data->map);
+	}
 }
