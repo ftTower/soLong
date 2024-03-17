@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   custom_map.c                                       :+:      :+:    :+:   */
+/*   settings_custom_map.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 00:40:05 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/20 10:07:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:55:36 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,38 +29,23 @@ int	custom_indoor_map(t_data *data)
 				data->e_y = y;
 			}
 			else if (data->map[x][y] == 'D')
-			{
 				data->map[x][y] = 'D';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x - 1, y) && check_walls(data, x, y - 1)
 				&& check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'e';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x, y - 1) && check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'f';
-			}
-
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x, y - 1) && check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'b';
-			}
-
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x - 1, y) && check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'p';
-			}
-
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x - 1, y) && check_walls(data, x, y - 1))
-			{
 				data->map[x][y] = 'q';
-			}
 
 			else if (check_walls(data, x, y) && check_walls(data, x, y - 1)
 				&& check_walls(data, x, y + 1))
@@ -87,49 +72,29 @@ int	custom_indoor_map(t_data *data)
 					data->map[x][y] = '1';
 				data->selecter_custom++;
 			}
-
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'l'; // up && right
-			}
-
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x, y - 1))
-			{
 				data->map[x][y] = 'm';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'j'; // up && right
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x + 1, y))
-			{
 				data->map[x][y] = 'n';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x, y - 1))
-			{
 				data->map[x][y] = 'o';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y))
-			{
 				data->map[x][y] = 'c';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y))
-			{
 				data->map[x][y] = 'd';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x, y + 1))
-			{
 				data->map[x][y] = 'g';
-			}
 			else if (check_walls(data, x, y) && check_walls(data, x, y - 1))
-			{
 				data->map[x][y] = 'h';
-			}
 			y++;
 		}
 		x++;

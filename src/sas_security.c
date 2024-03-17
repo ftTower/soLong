@@ -27,7 +27,7 @@ int	check_collectibles(char **map)
 		y = 0;
 		while (map[x][y])
 		{
-			if (map[x][y] == 'T')
+			if (map[x][y] == 'C')
 			{
 				print_simple_line();
 				write(1, "tout les collectibles ne sont pas accessibles\n",
@@ -112,26 +112,11 @@ int	find_first_border(t_data *data)
 	return (0);
 }
 
-// refaire map ok pour custom decoration
-// pose un D aleatoirement au debut et fait un full fill pour
-// savoir si les collectibles et la sortie sont toujours accessible
-
 int	bad_char(char c)
 {
-	if (c == 'T')
+	if (c == 'C' || c == 'E' || c == 'D' || c == 'P' || c == '1' || c == '0')
 		return (0);
-	else if (c == 'E')
-		return (0);
-	else if (c == 'D')
-		return (0);
-	else if (c == 'C')
-		return (0);
-	else if (c == '1')
-		return (0);
-	else if (c == '0')
-		return (0);
-	else
-		return (1);
+	return (1);
 }
 
 int	holy_find(t_data *data)
@@ -150,7 +135,6 @@ int	holy_find(t_data *data)
 	data->switcher = 0;
 	while (data->map[x])
 	{
-		// write(1, "cc2\n", 4);
 		if (data->size_y != y - 1)
 		{
 			print_simple_line();
@@ -173,16 +157,13 @@ int	holy_find(t_data *data)
 				print_simple_line();
 				return (0);
 			}
-			if (data->map[x][y] == 'T')
-			{
+			if (data->map[x][y] == 'C')
 				collectible++;
-			}
-			else if (data->map[x][y] == 'C')
+			else if (data->map[x][y] == 'P')
 				character++;
 			else if (data->map[x][y] == 'E')
 			{
 				exit++;
-				// printf("%d\n", data->switcher);
 				if (data->switcher == 0)
 				{
 					data->switcher++;
@@ -223,13 +204,13 @@ int	holy_find(t_data *data)
 	printf("collectibles : [%d]->[>0]\ncharacter    : [%d]->[ 1]\nexit\t     : [%d]->[ 1]\n\n",
 		collectible, character, exit);
 	print_simple_line();
-	// printf("[ > 0 && C == 1 && E == 1]\n\n");
 	return (0);
 }
 
 int	map_ok(t_data *data)
 {
-	char **dup;
+	char	**dup;
+
 	if (!holy_find(data))
 	{
 		write(1, "returned in holy_find\n", 23);
@@ -240,7 +221,6 @@ int	map_ok(t_data *data)
 	if (!dup)
 		return (0);
 	resolved_path(data, dup, data->x, data->y);
-	// print_map2(dup);
 	if (check_collectibles(dup) && correct_borders(dup))
 	{
 		delete_emptyness(data, dup);

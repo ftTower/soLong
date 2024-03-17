@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:29:46 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 00:06:30 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:58:10 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,36 @@ void	link_deco(t_data *data)
 	data->textures.capsule_3.next = &data->textures.capsule_4;
 	data->textures.capsule_4.next = &data->textures.capsule_5;
 	data->textures.capsule_5.next = &data->textures.capsule;
-	data->textures.wall_screen_outdoor.next = &data->textures.wall_screen_outdoor_1;
-	data->textures.wall_screen_outdoor_1.next = &data->textures.wall_screen_outdoor_2;
-	data->textures.wall_screen_outdoor_2.next = &data->textures.wall_screen_outdoor_3;
-	data->textures.wall_screen_outdoor_3.next = &data->textures.wall_screen_outdoor_4;
-	data->textures.wall_screen_outdoor_4.next = &data->textures.wall_screen_outdoor_5;
-	data->textures.wall_screen_outdoor_5.next = &data->textures.wall_screen_outdoor;
-	data->textures.wall_screen_indoor.next = &data->textures.wall_screen_indoor_1;
-	data->textures.wall_screen_indoor_1.next = &data->textures.wall_screen_indoor_2;
-	data->textures.wall_screen_indoor_2.next = &data->textures.wall_screen_indoor_3;
-	data->textures.wall_screen_indoor_3.next = &data->textures.wall_screen_indoor_4;
-	data->textures.wall_screen_indoor_4.next = &data->textures.wall_screen_indoor_5;
-	data->textures.wall_screen_indoor_5.next = &data->textures.wall_screen_indoor_6;
-	data->textures.wall_screen_indoor_6.next = &data->textures.wall_screen_indoor_7;
-	data->textures.wall_screen_indoor_7.next = &data->textures.wall_screen_indoor_8;
-	data->textures.wall_screen_indoor_8.next = &data->textures.wall_screen_indoor;
+	data->textures.wall_screen_outdoor.next
+		= &data->textures.wall_screen_outdoor_1;
+	data->textures.wall_screen_outdoor_1.next
+		= &data->textures.wall_screen_outdoor_2;
+	data->textures.wall_screen_outdoor_2.next
+		= &data->textures.wall_screen_outdoor_3;
+	data->textures.wall_screen_outdoor_3.next
+		= &data->textures.wall_screen_outdoor_4;
+	data->textures.wall_screen_outdoor_4.next
+		= &data->textures.wall_screen_outdoor_5;
+	data->textures.wall_screen_outdoor_5.next
+		= &data->textures.wall_screen_outdoor;
+	data->textures.wall_screen_indoor.next
+		= &data->textures.wall_screen_indoor_1;
+	data->textures.wall_screen_indoor_1.next
+		= &data->textures.wall_screen_indoor_2;
+	data->textures.wall_screen_indoor_2.next
+		= &data->textures.wall_screen_indoor_3;
+	data->textures.wall_screen_indoor_3.next
+		= &data->textures.wall_screen_indoor_4;
+	data->textures.wall_screen_indoor_4.next
+		= &data->textures.wall_screen_indoor_5;
+	data->textures.wall_screen_indoor_5.next
+		= &data->textures.wall_screen_indoor_6;
+	data->textures.wall_screen_indoor_6.next
+		= &data->textures.wall_screen_indoor_7;
+	data->textures.wall_screen_indoor_7.next
+		= &data->textures.wall_screen_indoor_8;
+	data->textures.wall_screen_indoor_8.next
+		= &data->textures.wall_screen_indoor;
 }
 
 void	link_perso(t_data *data)

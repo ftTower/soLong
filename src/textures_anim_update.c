@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:11:20 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/16 18:29:06 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:58:45 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	quick_next(t_data *data)
 {
-	data->textures.current_screen_indoor = *data->textures.current_screen_indoor.next;
+	data->textures.current_screen_indoor
+		= *data->textures.current_screen_indoor.next;
 	if (data->collectibles_left == 0)
 		data->textures.current_exit = *data->textures.current_exit.next;
 	else
@@ -23,8 +24,10 @@ void	quick_next(t_data *data)
 
 void	medium_next(t_data *data)
 {
-	data->textures.current_capsule = *data->textures.current_capsule.next;
-	data->textures.current_screen_outdoor = *data->textures.current_screen_outdoor.next;
+	data->textures.current_capsule
+		= *data->textures.current_capsule.next;
+	data->textures.current_screen_outdoor
+		= *data->textures.current_screen_outdoor.next;
 }
 
 void	slow_next(t_data *data)

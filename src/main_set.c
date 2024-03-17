@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/16 18:32:33 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:15:14 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ void	set_input(t_data *data)
 		y = 0;
 		while (data->map[x][y])
 		{
-			if (data->map[x][y] == 'T')
-			{
+			if (data->map[x][y] == 'C')
 				data->collectibles++;
-			}
-			else if (data->map[x][y] == 'C')
+			else if (data->map[x][y] == 'P')
 			{
 				data->x = x;
 				data->y = y;
@@ -56,7 +54,7 @@ void	set_window_size(t_data *data)
 	if (data->win_x > 1080 || data->win_y > 1920)
 	{
 		write(1, "[BAD MAP SIZE]\n\n", 17);
-		printf("your map size [x:%d][y:%d]\n", data->size_x, data->size_y);
+		ft_printf("your map size [x:%d][y:%d]\n", data->size_x, data->size_y);
 		write(1, "max map size  [x:38][y: 21]\n", 28);
 		free_map(data->map);
 		exit(1);
@@ -69,20 +67,20 @@ bool	data_maker(t_data *data)
 	data->shocking_win = 0;
 	data->mov_status = 1;
 	data->switcher = 0;
-	data->base_image = new_img(data->win_x, data->win_y, data); //! malloc
+	data->base_image = new_img(data->win_x, data->win_y, data);
 	if (!data->base_image.img)
 		return (free_map(data->map), mlx_destroy_window(data->mlx, data->win),
 			mlx_destroy_display(data->mlx), free(data->mlx), false);
-	if (!init_garbage_memory(data)) //! malloc
+	if (!init_garbage_memory(data))
 		close_win(data);
-	textures_loader(data); //! malloc
+	textures_loader(data);
 	custom_indoor_map(data);
 	return (true);
 }
 
 bool	settings(t_data *data)
 {
-	data->mlx = mlx_init(); //! malloc
+	data->mlx = mlx_init();
 	if (!data->mlx)
 		return (free_map(data->map), false);
 	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
@@ -96,7 +94,7 @@ bool	settings(t_data *data)
 
 bool	pre_settings(t_data *data)
 {
-	data->map = get_map(data->map_path); //! malloc
+	data->map = get_map(data->map_path);
 	if (!data->map)
 		return (true);
 	data->selecter_custom = 0;

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 11:55:38 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:08:26 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -442,5 +442,18 @@ char	*ft_itoa(int nb);
 bool	init_garbage_memory(t_data *data);
 bool	add_img_to_garbage_memory(t_data *data, t_img *new_img, char *name);
 bool	clean_garbage_memory(t_data *data, int mode);
+int	check_char(t_data *data, int x, int y, char c);
+
+size_t	ft_strlen_printf(const char *str);
+int	selecter(const char c, int ret_size, va_list arg);
+void	ft_putchar_len(char c, int *len);
+void	ft_putstr_len(const char *s, int *len);
+void	ft_putnbr_len(int nb, int *len);
+void	ft_putnbr_ptr(size_t nbr, char *base, int *len);
+void	ft_putptr_len(void *ptr, int *len);
+void	ft_putnbr_base(int nbr, char *base, int *len);
+void	ft_putnbr_un(unsigned int nbr, char *base, int *len);
+int	ft_printf(const char *str, ...);
+
 
 #endif

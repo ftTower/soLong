@@ -22,6 +22,16 @@ int	check_walls(t_data *data, int x, int y)
 	return ((c == '1') || (c >= 'a' && c <= 'z') || c == 'E');
 }
 
+int	check_char(t_data *data, int x, int y, char c)
+{
+	char	comp;
+
+	if (x < 0 || x > data->size_x || y < 0 || y > data->size_y)
+		return (0);
+	comp = data->map[x][y];
+	return (c == comp);
+}
+
 int	check_empty(t_data *data, int x, int y)
 {
 	char	c;
@@ -29,7 +39,7 @@ int	check_empty(t_data *data, int x, int y)
 	if (x < 0 || x > data->size_x || y < 0 || y > data->size_y)
 		return (0);
 	c = data->map[x][y];
-	return (c == '0' || c == 'C' || c == 'T' || c == 'V');
+	return (c == '0' || c == 'P' || c == 'C' || c == 'V');
 }
 
 int	check_void(t_data *data, int x, int y)
@@ -49,7 +59,7 @@ int	check_next(t_data *data, int x, int y)
 	if (x < 0 || x >= data->size_x || y < 0 || y >= data->size_y)
 		return (0);
 	next_cell = data->map[x][y];
-	if (next_cell == '0' || next_cell == '2' || next_cell == 'T'
+	if (next_cell == '0' || next_cell == '2' || next_cell == 'C'
 		|| (next_cell == 'E' && data->collectibles_left == 0))
 		return (1);
 	return (0);

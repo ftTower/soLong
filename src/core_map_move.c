@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_move.c                                         :+:      :+:    :+:   */
+/*   core_map_move.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:51:07 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/20 10:19:12 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:21:11 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ t_dir	get_dir(t_data *data)
 
 void	change_map(t_data *data, t_dir direction)
 {
-	if (data->map[data->x][data->y] == 'T')
+	if (data->map[data->x][data->y] == 'C')
 		data->collectibles_left -= 1;
 	else if (direction == no_dir)
 	{
-		data->map[(data->x)][(data->y)] = 'C';
+		data->map[(data->x)][(data->y)] = 'P';
 		return ;
 	}
 	else if (direction == north)

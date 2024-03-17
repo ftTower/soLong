@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   utils_for_get_next_line.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 13:01:50 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/28 13:01:50 by marvin           ###   ########.fr       */
+/*   Created: 2024/03/17 22:03:24 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/17 22:03:24 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "get_next_line.h"
 #include "../header/so_long.h"
 
-t_list *ft_lst_get_last(t_list *stash)
+t_list	*ft_lst_get_last(t_list *stash)
 {
-	t_list	*current;
+	t_list *current;
 
 	current = stash;
 	while (current && current->next)
@@ -25,7 +24,7 @@ t_list *ft_lst_get_last(t_list *stash)
 
 int	find_newline(t_list *stash)
 {
-	int 	i;
+	int i;
 	t_list *current;
 
 	if (stash == NULL)
@@ -43,12 +42,12 @@ int	find_newline(t_list *stash)
 
 void	add_to_stash(t_list **stash, char *buff, int readed)
 {
-	int	i;
+	int i;
 	t_list *last;
 	t_list *new_node;
 
 	new_node = malloc(sizeof(t_list));
-	if(new_node == NULL)
+	if (new_node == NULL)
 		return ;
 	new_node->next = NULL;
 	new_node->content = malloc(sizeof(char) * (readed + 1));
@@ -67,8 +66,9 @@ void	add_to_stash(t_list **stash, char *buff, int readed)
 		return ;
 	}
 	last = ft_lst_get_last(*stash);
-	last->next = new_node;	 
+	last->next = new_node;
 }
+
 
 void	read_and_stash(t_list **stash, int *readed_ptr, int fd)
 {
@@ -100,14 +100,14 @@ void	generate_line(char **line, t_list *stash)
 	while (stash)
 	{
 		i = 0;
-		while(stash->content[i])
+		while (stash->content[i])
 		{
 			if (stash->content[i] == '\n')
 			{
 				len++;
-				break;
+				break ;
 			}
-			len++;	
+			len++;
 			i++;
 		}
 		stash = stash->next;

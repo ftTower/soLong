@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:34:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/16 18:26:24 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:10:40 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	init_exit(t_data *data)
 {
-	printf("=========================================================================================\n| EXIT_TEXTURES\n=========================================================================================\n");
+	ft_printf("=========================================================================================\n| EXIT_TEXTURES\n=========================================================================================\n");
 	add_img_to_garbage_memory(data, &data->textures.exit_1,
 		"exit_1\t\t      :./img/exit/exit_1.xpm:0E");
 	add_img_to_garbage_memory(data, &data->textures.exit_2,
@@ -69,7 +69,7 @@ bool	init_exit(t_data *data)
 
 bool	init_screen_indoor(t_data *data)
 {
-	printf("=========================================================================================\n| SCREEN_INDOOR_TEXTURES\n=========================================================================================\n");
+	ft_printf("=========================================================================================\n| SCREEN_INDOOR_TEXTURES\n=========================================================================================\n");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor,
 		"wall_screen_indoor_0   :./img/wall_screen_animation/wall_screen_indoor.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_1,
@@ -103,7 +103,7 @@ bool	init_screen_indoor(t_data *data)
 
 bool	init_screen_outdoor(t_data *data)
 {
-	printf("=========================================================================================\n| SCREEN_OUTDOOR_TEXTURES\n=========================================================================================\n");
+	ft_printf("=========================================================================================\n| SCREEN_OUTDOOR_TEXTURES\n=========================================================================================\n");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor,
 		"wall_screen_outdoor_0  :./img/screen_outdoor_animation/wall_screen_outdoor.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_1,
@@ -128,7 +128,7 @@ bool	init_screen_outdoor(t_data *data)
 
 bool	init_capsule(t_data *data)
 {
-	printf("=========================================================================================\n| CAPSULE_TEXTURES\n=========================================================================================\n");
+	ft_printf("=========================================================================================\n| CAPSULE_TEXTURES\n=========================================================================================\n");
 	add_img_to_garbage_memory(data, &data->textures.capsule,
 		"capsule_0              :./img/capsule_animation/capsule.xpm:YD");
 	add_img_to_garbage_memory(data, &data->textures.capsule_1,
@@ -147,4 +147,3 @@ bool	init_capsule(t_data *data)
 		return (false);
 	return (true);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:35:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/14 19:00:48 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:47:11 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ void	slow_loop(t_data *data)
 void	very_slow_loop(t_data *data)
 {
 	if (gettime() - data->time_ennemy >= 500)
-	{
 		data->time_ennemy = gettime();
-		// data->textures.current_perso = data->textures.perso;
-	}
 }
 
 void	loops(t_data *data)

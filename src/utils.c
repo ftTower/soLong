@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:14:57 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 15:02:25 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:03:59 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ clock_t	gettime(void)
 	return ((clock() / (CLOCKS_PER_SEC / 1000)));
 }
 
-void	delete_emptyness(t_data *data,char **map)
+void	delete_emptyness(t_data *data, char **map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (map[x])

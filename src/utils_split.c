@@ -6,12 +6,11 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:34:28 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/15 20:19:08 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 22:03:56 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
-
 
 unsigned long	len_tab(char **tab)
 {
@@ -52,7 +51,7 @@ char	**tab_argv(int argc, char **argv)
 	{
 		tab[i] = ft_strdup(argv[i2]);
 		if (!tab[i])
-		{	
+		{
 			free_map(tab);
 			return (NULL);
 		}

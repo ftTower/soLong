@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:28:50 by tauer             #+#    #+#             */
-/*   Updated: 2024/01/27 14:40:55 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:54:10 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ void	place_ennemy(t_data *data)
 		return ;
 	}
 	else
-	{
 		place_ennemy(data);
-	}
 }

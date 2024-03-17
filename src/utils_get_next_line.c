@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2023/11/27 22:38:23 by marvin            #+#    #+#             */
 /*   Updated: 2023/11/27 22:38:23 by marvin           ###   ########.fr       */
 /*                                                                            */
@@ -13,10 +16,11 @@
 // #include "get_next_line.h"
 #include "../header/so_long.h"
 
+
 void	extract_line(t_list *stash, char **line)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	if (stash == NULL)
 		return ;
@@ -32,7 +36,7 @@ void	extract_line(t_list *stash, char **line)
 			if (stash->content[i] == '\n')
 			{
 				(*line)[j++] = stash->content[i];
-				break;
+				break ;
 			}
 			(*line)[j++] = stash->content[i++];
 		}
@@ -46,7 +50,7 @@ size_t	ft_strlen(const char *str)
 	size_t i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
 	return (i);
 }
@@ -61,7 +65,7 @@ void	free_stash(t_list *stash)
 	{
 		free(current->content);
 		next = current->next;
-		free (current);
+		free(current);
 		current = next;
 	}
 }
@@ -83,7 +87,8 @@ void	clear_stash(t_list **stash)
 		i++;
 	if (last->content && last->content[i] == '\n')
 		i++;
-	clean_node->content = malloc(sizeof(char) * ((ft_strlen(last->content) - i) + 1));
+	clean_node->content = malloc(sizeof(char) * ((ft_strlen(last->content) - i)
+				+ 1));
 	if (clean_node == NULL)
 		return ;
 	j = 0;
@@ -97,21 +102,20 @@ void	clear_stash(t_list **stash)
 extern char	*get_next_line(int fd)
 {
 	static t_list *stash = NULL;
-	char			*line;
-	int				readed;
+	char *line;
+	int readed;
 
-	
-	if (fd < 0 || BUFFER_SIZE < 0  || read(fd, &line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, &line, 0) < 0)
 		return (NULL);
 	readed = 1;
 	line = NULL;
-	//read from fd and add to linker list
+	// read from fd and add to linker list
 	read_and_stash(&stash, &readed, fd);
 	if (stash == NULL)
 		return (NULL);
-	//extract from stash to line
+	// extract from stash to line
 	extract_line(stash, &line);
-	//cleanup la stash
+	// cleanup la stash
 	clear_stash(&stash);
 	if (line[0] == '\0')
 	{

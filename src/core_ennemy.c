@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ennemy.c                                           :+:      :+:    :+:   */
+/*   core_ennemy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:51:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/02/21 11:33:41 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 21:28:37 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,13 @@
 bool	diago(t_data *data)
 {
 	if (data->x < data->v_x && data->y < data->v_y)
-	{
-		v_nor_we(data);
-		// write(1, "nord_we\n", 9);
-		return (false);
-	}
+		return (v_nor_we(data), false);
 	if (data->x < data->v_x && data->y > data->v_y)
-	{
-		v_nor_ea(data);
-		// write(1, "nord_ea\n", 9);
-		return (false);
-	}
+		return (v_nor_ea(data), false);
 	if (data->x > data->v_x && data->y < data->v_y)
-	{
-		v_south_we(data);
-		// write(1, "sout_we\n", 9);
-		return (false);
-	}
+		return (v_south_we(data), false);
 	if (data->x > data->v_x && data->y > data->v_y)
-	{
-		v_south_ea(data);
-		// write(1, "south_ea\n", 9);
-		return (false);
-	}
+		return (v_south_ea(data), false);
 	return (true);
 }
 
@@ -72,10 +56,7 @@ void	best_decisition(t_data *data)
 int	ennemy_dead(t_data *data)
 {
 	if (data->life_ennemy == 0)
-	{
-		data->map[data->v_x][data->v_y] = '0';
-		return (0);
-	}
+		return (data->map[data->v_x][data->v_y] = '0', 0);
 	return (1);
 }
 
