@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/16 17:36:49 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/17 11:55:38 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -407,8 +407,7 @@ void chose_ennemy_move(t_data *data);
 int ennemy_dead(t_data *data);
 void shoot(t_data *data);
 void map_erreur_size(char **map, t_data *data, int x_error);
-void map_erreur_char(char **map, t_data *data, int x_error,
-					 int y_error);
+void map_erreur_char(char **map);
 
 t_dir get_dir(t_data *data);
 

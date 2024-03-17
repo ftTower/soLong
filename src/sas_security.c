@@ -169,7 +169,7 @@ int	holy_find(t_data *data)
 				print_simple_line();
 				printf("[BAD CHAR]\n\nin position [%d][%d]\nchar:\t\t [%c]\n\t [0;1;C;T;E]\n",
 					x, y, data->map[x][y]);
-				map_erreur_char(data->map, data, x, y);
+				map_erreur_char(data->map);
 				print_simple_line();
 				return (0);
 			}
