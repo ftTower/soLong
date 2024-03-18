@@ -68,11 +68,6 @@ int	check_next(t_data *data, int x, int y)
 int	borders(char c)
 {
 	if (c == 'X')
-	{
-		print_simple_line();
-		printf("map not closed\n");
-		print_simple_line();
-		return (1);
-	}
+		return (put_error_msg("map not closed") ,1);
 	return (0);
 }

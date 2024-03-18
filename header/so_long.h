@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:08:26 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/18 12:17:49 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <sys/time.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 typedef struct s_img
 {
@@ -454,6 +455,7 @@ void	ft_putptr_len(void *ptr, int *len);
 void	ft_putnbr_base(int nbr, char *base, int *len);
 void	ft_putnbr_un(unsigned int nbr, char *base, int *len);
 int	ft_printf(const char *str, ...);
+void put_error_msg(char *error_msg);
 
 
 #endif

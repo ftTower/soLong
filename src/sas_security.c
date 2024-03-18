@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2024/01/07 00:51:19 by marvin            #+#    #+#             */
-/*   Updated: 2024/01/07 00:51:19 by marvin           ###   ########.fr       */
+/*   sas_security.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/18 12:20:03 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/18 12:20:03 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
+void put_error_msg(char *error_msg)
+{
+	print_simple_line();
+	ft_printf("%s\n", error_msg);
+	print_simple_line();
+}
 
-int	check_collectibles(char **map)
+int check_collectibles(char **map)
 {
 	int x;
 	int y;
@@ -28,21 +31,9 @@ int	check_collectibles(char **map)
 		while (map[x][y])
 		{
 			if (map[x][y] == 'C')
-			{
-				print_simple_line();
-				write(1, "tout les collectibles ne sont pas accessibles\n",
-					47);
-				print_simple_line();
-				return (0);
-			}
+				return (put_error_msg("tout les collectibles ne sont pas accessibles"), 0);
 			else if (map[x][y] == 'E')
-			{
-				print_simple_line();
-				write(1, "la sortie nest pas accessibles\n", 32);
-				print_simple_line();
-
-				return (0);
-			}
+				return (put_error_msg("la sortie nest pas accessibles"), 0);
 			y++;
 		}
 		x++;
@@ -50,7 +41,7 @@ int	check_collectibles(char **map)
 	return (1);
 }
 
-int	correct_borders(char **map)
+int correct_borders(char **map)
 {
 	int x;
 	int y;
@@ -59,36 +50,24 @@ int	correct_borders(char **map)
 	y = 0;
 
 	while (map[x])
-	{
-		if (borders(map[x][y]))
+		if (borders(map[x++][y]))
 			return (0);
-		x++;
-	}
 	x--;
 	while (map[x][y])
-	{
-		if (borders(map[x][y]))
+		if (borders(map[x][y++]))
 			return (0);
-		y++;
-	}
 	y--;
 	while (x >= 0)
-	{
-		if (borders(map[x][y]))
+		if (borders(map[x--][y]))
 			return (0);
-		x--;
-	}
 	x++;
 	while (y > 0)
-	{
-		if (borders(map[x][y]))
+		if (borders(map[x][y--]))
 			return (0);
-		y--;
-	}
 	return (1);
 }
 
-int	find_first_border(t_data *data)
+int find_first_border(t_data *data)
 {
 	int x;
 	int y;
@@ -112,104 +91,107 @@ int	find_first_border(t_data *data)
 	return (0);
 }
 
-int	bad_char(char c)
+int bad_char(char c)
 {
 	if (c == 'C' || c == 'E' || c == 'D' || c == 'P' || c == '1' || c == '0')
 		return (0);
 	return (1);
 }
 
-int	holy_find(t_data *data)
+bool find_exit(t_data *data, int *exit, int x, int y)
 {
-	int x;
-	int y;
-	int collectible;
-	int character;
-	int exit;
-
-	x = 0;
-	y = data->size_y + 1;
-	collectible = 0;
-	character = 0;
-	exit = 0;
-	data->switcher = 0;
-	while (data->map[x])
+	if (data->map[x][y] == 'E')
 	{
-		if (data->size_y != y - 1)
+		exit++;
+		if (data->switcher == 0)
 		{
-			print_simple_line();
-			printf("[SIZE LINE]\n\nin line[%d]\nlen    [%d]\nneeded [%d]\n", x,
-				y - 1, data->size_y);
-			map_erreur_size(data->map, data, x);
-			print_simple_line();
-
-			return (0);
-		}
-		y = 0;
-		while (data->map[x][y])
-		{
-			if (bad_char(data->map[x][y]))
+			data->switcher++;
+			if (check_walls(data, x + 1, y) && (check_walls(data, x - 1,
+															y)))
+			{
+				data->map[x][y] = '0';
+				data->map[x - 1][y] = 'E';
+			}
+			else if (check_walls(data, x + 1, y))
+			{
+				data->map[x][y] = '0';
+				data->map[x + 1][y] = 'E';
+			}
+			else if (check_walls(data, x - 1, y))
+			{
+				data->map[x][y] = '0';
+				data->map[x - 1][y] = 'E';
+			}
+			else
 			{
 				print_simple_line();
-				printf("[BAD CHAR]\n\nin position [%d][%d]\nchar:\t\t [%c]\n\t [0;1;C;T;E]\n",
-					x, y, data->map[x][y]);
-				map_erreur_char(data->map);
+				write(1, "door not connected\n", 20);
+				map_erreur(data->map, data);
 				print_simple_line();
+				return (true);
+			}
+		}
+	}
+	return (false);
+}
+
+	int holy_find(t_data * data)
+	{
+		int x;
+		int y;
+		int collectible;
+		int character;
+		int exit;
+
+		x = 0;
+		y = data->size_y + 1;
+		collectible = 0;
+		character = 0;
+		exit = 0;
+		data->switcher = 0;
+		while (data->map[x])
+		{
+			if (data->size_y != y - 1)
+			{
+				print_simple_line();
+				printf("[SIZE LINE]\n\nin line[%d]\nlen    [%d]\nneeded [%d]\n", x,
+					   y - 1, data->size_y);
+				map_erreur_size(data->map, data, x);
 				return (0);
 			}
-			if (data->map[x][y] == 'C')
-				collectible++;
-			else if (data->map[x][y] == 'P')
-				character++;
-			else if (data->map[x][y] == 'E')
+			y = 0;
+			while (data->map[x][y])
 			{
-				exit++;
-				if (data->switcher == 0)
+				if (bad_char(data->map[x][y]))
 				{
-					data->switcher++;
-					if (check_walls(data, x + 1, y) && (check_walls(data, x - 1,
-								y)))
-					{
-						data->map[x][y] = '0';
-						data->map[x - 1][y] = 'E';
-					}
-					else if (check_walls(data, x + 1, y))
-					{
-						data->map[x][y] = '0';
-						data->map[x + 1][y] = 'E';
-					}
-					else if (check_walls(data, x - 1, y))
-					{
-						data->map[x][y] = '0';
-						data->map[x - 1][y] = 'E';
-					}
-					else
-					{
-						print_simple_line();
-						write(1, "door not connected\n", 20);
-						map_erreur(data->map, data);
-						print_simple_line();
-						return (0);
-					}
+					print_simple_line();
+					printf("[BAD CHAR]\n\nin position [%d][%d]\nchar:\t\t [%c]\n\t [0;1;C;T;E]\n",
+						   x, y, data->map[x][y]);
+					map_erreur_char(data->map);
+					return (0);
 				}
+				if (data->map[x][y] == 'C')
+					collectible++;
+				else if (data->map[x][y] == 'P')
+					character++;
+				else if (find_exit(data, &exit, x, y))
+					return (0);
+				y++;
 			}
-			y++;
-		}
 		x++;
-	}
+		}
 	if (collectible > 0 && character == 1 && exit == 1)
 		return (1);
 	print_simple_line();
 	write(1, "[BAD MAP]\n\n", 12);
-	printf("collectibles : [%d]->[>0]\ncharacter    : [%d]->[ 1]\nexit\t     : [%d]->[ 1]\n\n",
-		collectible, character, exit);
+	printf("collectibles : [%d]->[>0]\ncharacter    : [%d]->[ 1]\nexit\t     : [%d]->[ 1]\n\n",collectible, character, exit);
 	print_simple_line();
 	return (0);
 }
 
-int	map_ok(t_data *data)
+int map_ok(t_data *data)
 {
-	char	**dup;
+	char **dup;
 
 	if (!holy_find(data))
 	{

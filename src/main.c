@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:09:54 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/18 11:39:19 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void	sas(t_data *data)
 		ft_printf("[ERROR]\n");
 		print_simple_line();
 		free_map(data->map);
-		return ;
 	}
-	close_win(data);
 }
 
 int	main(int argc, char **argv)
