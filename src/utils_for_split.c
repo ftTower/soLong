@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:32:49 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/11 12:03:58 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:12:24 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	**tab_tab_split(const char *s, char c)
 		tab[i] = mal_str(s, c, &pos);
 		if (!tab[i])
 		{
-			free(tab);
+			free_map(tab);
 			return (0);
 		}
 		s += pos;

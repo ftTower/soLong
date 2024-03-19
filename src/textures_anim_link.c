@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:29:46 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:58:10 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 15:55:30 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	link_exit(t_data *data)
 	data->textures.exit_19.next = &data->textures.exit_18;
 }
 
-void	link_deco(t_data *data)
+void	link_deco_start(t_data *data)
 {
 	data->textures.capsule.next = &data->textures.capsule_1;
 	data->textures.capsule_1.next = &data->textures.capsule_2;
@@ -55,6 +55,11 @@ void	link_deco(t_data *data)
 		= &data->textures.wall_screen_outdoor_5;
 	data->textures.wall_screen_outdoor_5.next
 		= &data->textures.wall_screen_outdoor;
+}
+
+void	link_deco(t_data *data)
+{
+	link_deco_start(data);
 	data->textures.wall_screen_indoor.next
 		= &data->textures.wall_screen_indoor_1;
 	data->textures.wall_screen_indoor_1.next

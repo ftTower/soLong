@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 16:40:26 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:46:19 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:02:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_img	new_file_img(char *path, t_data *data)
 unsigned int	get_pixel_img(t_img img, int x, int y)
 {
 	return (*(unsigned int *)((img.addr + (y * img.line_length) + (x
-					* img.bits_per_pixel / 8))));
+				* img.bits_per_pixel / 8))));
 }
 
 void	put_pixel_img(t_img img, int x, int y, int color)
@@ -84,14 +84,3 @@ t_img	new_img(int w, int h, t_data *data)
 	return (image);
 }
 
-t_img	new_img_num(int w, int h, t_data *data)
-{
-	t_img	image;
-
-	image.img = mlx_new_image(data->mlx_num, w, h);
-	image.addr = mlx_get_data_addr(image.img, &(image.bits_per_pixel),
-			&(image.line_length), &(image.endian));
-	image.w = w;
-	image.h = h;
-	return (image);
-}

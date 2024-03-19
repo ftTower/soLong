@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:57:35 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:46:43 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:03:20 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,10 @@ void	move_right(t_data *data)
 	change_map(data, east);
 	data->textures.current_perso = data->textures.right_perso;
 }
+
 void	move_left(t_data *data)
 {
 	change_map(data, west);
 	data->textures.current_perso = data->textures.left_perso;
 }
 
-void	move_nor_es(t_data *data)
-{
-	change_map(data, nor_ea);
-}
-
-void	move_nor_we(t_data *data)
-{
-	change_map(data, nor_we);
-}
-
-void	move_sou_es(t_data *data)
-{
-	change_map(data, sou_ea);
-}
-
-void	move_sou_we(t_data *data)
-{
-	change_map(data, sou_we);
-}

@@ -6,11 +6,34 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:15:14 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 16:04:26 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
+
+bool	set_map_size(t_data *data)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	if (!data->map)
+		return (true);
+	while (data->map[x])
+	{
+		y = 0;
+		while (data->map[x][y])
+			y++;
+		x++;
+	}
+	if (x < 1 && y < 1)
+		return (free_map(data->map), true);
+	data->size_y = y - 1;
+	data->size_x = x - 1;
+	return (false);
+}
 
 void	set_input(t_data *data)
 {
@@ -18,7 +41,6 @@ void	set_input(t_data *data)
 	int	y;
 
 	x = 0;
-	y = 0;
 	while (data->map[x])
 	{
 		y = 0;
@@ -42,8 +64,6 @@ void	set_input(t_data *data)
 		}
 		x++;
 	}
-	data->size_y = y - 1;
-	data->size_x = x - 1;
 	return ;
 }
 
@@ -76,45 +96,4 @@ bool	data_maker(t_data *data)
 	textures_loader(data);
 	custom_indoor_map(data);
 	return (true);
-}
-
-bool	settings(t_data *data)
-{
-	data->mlx = mlx_init();
-	if (!data->mlx)
-		return (free_map(data->map), false);
-	data->win = mlx_new_window(data->mlx, data->win_x, data->win_y,
-			"soooooLong");
-	if (!data->win)
-		return (free_map(data->map), mlx_destroy_display(data->mlx),
-			free(data->mlx), false);
-	data_maker(data);
-	return (true);
-}
-
-bool	pre_settings(t_data *data)
-{
-	data->map = get_map(data->map_path);
-	if (!data->map)
-		return (true);
-	data->selecter_custom = 0;
-	data->time_render = gettime();
-	data->time_perso = gettime();
-	data->time_capsule = gettime();
-	data->time_ennemy = gettime();
-	data->time_start = gettime();
-	data->move = 0;
-	data->mov_chunk_x = 20;
-	data->mov_chunk_y = 20;
-	data->chunk_v_x = 20;
-	data->chunk_v_y = 20;
-	data->switcher = 1;
-	data->wave = 0;
-	data->collectibles = 0;
-	set_key_false(data);
-	find_first_border(data);
-	set_input(data);
-	data->collectibles_left = data->collectibles;
-	set_window_size(data);
-	return (false);
 }

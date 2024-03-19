@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:51:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:28:37 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:01:01 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,12 @@ void	cote_without_goal(t_data *data)
 				v_west(data);
 }
 
-void	best_decisition(t_data *data)
-{
-	if (diago(data))
-		if (cote_with_goal(data))
-			(cote_without_goal(data));
-}
-
-int	ennemy_dead(t_data *data)
-{
-	if (data->life_ennemy == 0)
-		return (data->map[data->v_x][data->v_y] = '0', 0);
-	return (1);
-}
-
-void	ennemys_conscience(t_data *data)
+void	ennemy_decisition(t_data *data)
 {
 	if (data->life_ennemy > 0 && data->wave > 0)
-		best_decisition(data);
+		if (diago(data))
+			if (cote_with_goal(data))
+				(cote_without_goal(data));
 }
+
+

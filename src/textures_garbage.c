@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:10:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 16:18:01 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,19 @@ bool	clean_garbage_memory(t_data *data, int mode)
 	memory_current = data->memory;
 	if (mode != -1)
 		ft_printf("\033c");
-	ft_printf("=========================================================================================\n| FREE_TEXTURES\n=========================================================================================\n");
+	put_error_msg("| FREE_TEXTURES");
 	while (memory_current)
 	{
 		usleep(5000);
 		temp = memory_current->next;
-		ft_printf("| ❌ : \033[38;5;129m%p\033[0m | \033[38;5;15m%s\033[0m\n",
-			memory_current->ptr, memory_current->name);
-		mlx_destroy_image(data->mlx, memory_current->ptr);
-		free(memory_current->id);
-		free(memory_current->name);
-		free(memory_current->path);
-		free(memory_current);
+		free_element(memory_current, data);
 		memory_current = temp;
 	}
 	if (mode != -1)
-		ft_printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\tyou finished wave \033[38;5;125m%d\033[0m !\n\n\n\n\n",
+	{
+		ft_printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\t");
+		ft_printf("you finished wave \033[38;5;125m%d\033[0m !\n\n\n\n\n",
 			data->wave);
+	}
 	return (true);
 }

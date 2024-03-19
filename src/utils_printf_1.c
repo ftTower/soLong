@@ -6,12 +6,11 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:46:22 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:05:56 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 16:17:06 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
-
 
 void	ft_putchar_len(char c, int *len)
 {

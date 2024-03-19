@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 18:34:58 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:10:40 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 16:11:28 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	init_exit(t_data *data)
 {
-	ft_printf("=========================================================================================\n| EXIT_TEXTURES\n=========================================================================================\n");
+	put_error_msg("| EXIT_TEXTURES");
 	add_img_to_garbage_memory(data, &data->textures.exit_1,
 		"exit_1\t\t      :./img/exit/exit_1.xpm:0E");
 	add_img_to_garbage_memory(data, &data->textures.exit_2,
@@ -69,25 +69,25 @@ bool	init_exit(t_data *data)
 
 bool	init_screen_indoor(t_data *data)
 {
-	ft_printf("=========================================================================================\n| SCREEN_INDOOR_TEXTURES\n=========================================================================================\n");
+	put_error_msg("| SCREEN_INDOOR_TEXTURES");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor,
-		"wall_screen_indoor_0   :./img/wall_screen_animation/wall_screen_indoor.xpm:0y");
+		"screen_indoor_0   :./img/wall_screen_animation/wall_screen_indoor.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_1,
-		"wall_screen_indoor_1   :./img/wall_screen_animation/wall_screen_indoor_1.xpm:0y");
+		"screen_indoor_1   :./img/wall_screen_animation/wall_screen_indoor_1.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_2,
-		"wall_screen_indoor_2   :./img/wall_screen_animation/wall_screen_indoor_2.xpm:0y");
+		"screen_indoor_2   :./img/wall_screen_animation/wall_screen_indoor_2.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_3,
-		"wall_screen_indoor_3   :./img/wall_screen_animation/wall_screen_indoor_3.xpm:0y");
+		"screen_indoor_3   :./img/wall_screen_animation/wall_screen_indoor_3.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_4,
-		"wall_screen_indoor_4   :./img/wall_screen_animation/wall_screen_indoor_4.xpm:0y");
+		"screen_indoor_4   :./img/wall_screen_animation/wall_screen_indoor_4.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_5,
-		"wall_screen_indoor_5   :./img/wall_screen_animation/wall_screen_indoor_5.xpm:0y");
+		"screen_indoor_5   :./img/wall_screen_animation/wall_screen_indoor_5.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_6,
-		"wall_screen_indoor_6   :./img/wall_screen_animation/wall_screen_indoor_6.xpm:0y");
+		"screen_indoor_6   :./img/wall_screen_animation/wall_screen_indoor_6.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_7,
-		"wall_screen_indoor_7   :./img/wall_screen_animation/wall_screen_indoor_7.xpm:0y");
+		"creen_indoor_7   :./img/wall_screen_animation/wall_screen_indoor_7.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor_8,
-		"wall_screen_indoor_8   :./img/wall_screen_animation/wall_screen_indoor_8.xpm:0y");
+		"screen_indoor_8   :./img/wall_screen_animation/wall_screen_indoor_8.xpm:0y");
 	if (!data->textures.wall_screen_indoor.img
 		|| !data->textures.wall_screen_indoor_1.img
 		|| !data->textures.wall_screen_indoor_2.img
@@ -103,19 +103,19 @@ bool	init_screen_indoor(t_data *data)
 
 bool	init_screen_outdoor(t_data *data)
 {
-	ft_printf("=========================================================================================\n| SCREEN_OUTDOOR_TEXTURES\n=========================================================================================\n");
+	put_error_msg("| SCREEN_OUTDOOR_TEXTURES");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor,
-		"wall_screen_outdoor_0  :./img/screen_outdoor_animation/wall_screen_outdoor.xpm:0t");
+		"screen_outdoor_0  :./img/screen_outdoor_animation/wall_screen_outdoor.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_1,
-		"wall_screen_outdoor_1  :./img/screen_outdoor_animation/wall_screen_outdoor_1.xpm:0t");
+		"screen_outdoor_1  :./img/screen_outdoor_animation/wall_screen_outdoor_1.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_2,
-		"wall_screen_outdoor_2  :./img/screen_outdoor_animation/wall_screen_outdoor_2.xpm:0t");
+		"screen_outdoor_2  :./img/screen_outdoor_animation/wall_screen_outdoor_2.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_3,
-		"wall_screen_outdoor_3  :./img/screen_outdoor_animation/wall_screen_outdoor_3.xpm:0t");
+		"screen_outdoor_3  :./img/screen_outdoor_animation/wall_screen_outdoor_3.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_4,
-		"wall_screen_outdoor_4  :./img/screen_outdoor_animation/wall_screen_outdoor_2.xpm:0t");
+		"screen_outdoor_4  :./img/screen_outdoor_animation/wall_screen_outdoor_2.xpm:0t");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor_5,
-		"wall_screen_outdoor_5  :./img/screen_outdoor_animation/wall_screen_outdoor_1.xpm:0t");
+		"screen_outdoor_5  :./img/screen_outdoor_animation/wall_screen_outdoor_1.xpm:0t");
 	if (!data->textures.wall_screen_outdoor.img
 		|| !data->textures.wall_screen_outdoor_1.img
 		|| !data->textures.wall_screen_outdoor_2.img
@@ -128,7 +128,7 @@ bool	init_screen_outdoor(t_data *data)
 
 bool	init_capsule(t_data *data)
 {
-	ft_printf("=========================================================================================\n| CAPSULE_TEXTURES\n=========================================================================================\n");
+	put_error_msg("| CAPSULE_TEXTURES");
 	add_img_to_garbage_memory(data, &data->textures.capsule,
 		"capsule_0              :./img/capsule_animation/capsule.xpm:YD");
 	add_img_to_garbage_memory(data, &data->textures.capsule_1,

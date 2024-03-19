@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:35:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:47:11 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 12:55:26 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	quick_loop(t_data *data)
 	{
 		data->time_render = gettime();
 		global_render(data);
-		ennemys_conscience(data);
+		ennemy_decisition(data);
 		ennemy_dead(data);
 		quick_next(data);
 		player_death(data);

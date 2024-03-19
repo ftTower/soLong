@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset.c                                            :+:      :+:    :+:   */
+/*   core_move_diago.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 18:27:16 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:25:21 by tauer            ###   ########.fr       */
+/*   Created: 2024/03/19 13:02:54 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/19 13:03:29 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void	reset_collectibles(t_data *data)
+void	move_nor_es(t_data *data)
 {
-	char	**dup;
-	int		x;
-	int		y;
+	change_map(data, nor_ea);
+}
 
-	x = 0;
-	y = 0;
-	dup = get_map(data->map_path);
-	if (!dup)
-		return ;
-	while (dup[x])
-	{
-		y = 0;
-		while (dup[x][y])
-		{
-			if (dup[x][y] == 'C')
-			{
-				data->map[x][y] = 'C';
-				data->collectibles_left++;
-			}
-			y++;
-		}
-		x++;
-	}
-	free_map(dup);
+void	move_nor_we(t_data *data)
+{
+	change_map(data, nor_we);
+}
+
+void	move_sou_es(t_data *data)
+{
+	change_map(data, sou_ea);
+}
+
+void	move_sou_we(t_data *data)
+{
+	change_map(data, sou_we);
 }

@@ -6,13 +6,13 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:47:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/18 12:52:00 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 15:48:32 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-void	map_erreur(char **map, t_data *data)
+void	map_erreur(char **map)
 {
 	int	x;
 	int	y;
@@ -28,10 +28,10 @@ void	map_erreur(char **map, t_data *data)
 				ft_printf("\033[48;5;240m  \033[0m");
 			else if (map[x][y] == 'D')
 				ft_printf("\033[48;5;248m  \033[0m");
-			else if (map[x][y] == 'C')
+			else if (map[x][y] == 'P')
 				ft_printf("\033[48;5;40m  \033[0m");
-			else if (map[x][y] == 'E' && data->collectibles_left == 0)
-				ft_printf("\033[48;5;76m  \033[0m");
+			else if (map[x][y] == 'C')
+				ft_printf("\033[48;5;22m  \033[0m");
 			else if (map[x][y] == 'E')
 				ft_printf("\033[48;5;76m  \033[0m");
 			else if (map[x][y] == 'X')
@@ -43,17 +43,15 @@ void	map_erreur(char **map, t_data *data)
 		ft_printf("\n");
 		x++;
 	}
-	print_simple_line();
 }
 
-void	map_erreur_size(char **map, t_data *data, int x_error)
+void	map_erreur_size(char **map, int x_error)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	print_simple_line();
 	while (map[x])
 	{
 		y = 0;
@@ -68,9 +66,7 @@ void	map_erreur_size(char **map, t_data *data, int x_error)
 			else if (map[x][y] == 'D')
 				ft_printf("\033[48;5;248m  \033[0m");
 			else if (map[x][y] == 'C')
-				ft_printf("\033[48;5;40m  \033[0m");
-			else if (map[x][y] == 'E' && data->collectibles_left == 0)
-				ft_printf("\033[48;5;76m  \033[0m");
+				ft_printf("\033[48;5;22m  \033[0m");
 			else if (map[x][y] == 'E')
 				ft_printf("\033[48;5;76m  \033[0m");
 			else if (map[x][y] == 'X')
@@ -82,7 +78,6 @@ void	map_erreur_size(char **map, t_data *data, int x_error)
 		printf("\n");
 		x++;
 	}
-	print_simple_line();
 }
 
 void	map_erreur_char(char **map)
@@ -103,11 +98,11 @@ void	map_erreur_char(char **map)
 			else if (map[x][y] == 'D')
 				ft_printf("\033[48;5;248m  \033[0m");
 			else if (map[x][y] == 'C')
-				ft_printf("\033[48;5;40m  \033[0m");
+				ft_printf("\033[48;5;22m  \033[0m");
 			else if (map[x][y] == 'E')
 				ft_printf("\033[48;5;76m  \033[0m");
 			else if (map[x][y] == 'P')
-				ft_printf("\033[48;5;245m  \033[0m");
+				ft_printf("\033[48;5;40m  \033[0m");
 			else if (map[x][y] == '0')
 				ft_printf("\033[48;5;195m  \033[0m");
 			else
@@ -117,5 +112,11 @@ void	map_erreur_char(char **map)
 		printf("\n");
 		x++;
 	}
+}
+
+void	put_error_msg(char *error_msg)
+{
+	print_simple_line();
+	ft_printf("%s\n", error_msg);
 	print_simple_line();
 }
