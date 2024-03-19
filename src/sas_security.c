@@ -98,11 +98,10 @@ int bad_char(char c)
 	return (1);
 }
 
-bool find_exit(t_data *data, int *exit, int x, int y)
+bool find_exit(t_data *data, int x, int y)
 {
 	if (data->map[x][y] == 'E')
 	{
-		exit++;
 		if (data->switcher == 0)
 		{
 			data->switcher++;
@@ -174,7 +173,7 @@ bool find_exit(t_data *data, int *exit, int x, int y)
 					collectible++;
 				else if (data->map[x][y] == 'P')
 					character++;
-				else if (find_exit(data, &exit, x, y))
+				else if (find_exit(data, x, y))
 					return (0);
 				y++;
 			}
@@ -185,6 +184,7 @@ bool find_exit(t_data *data, int *exit, int x, int y)
 	print_simple_line();
 	write(1, "[BAD MAP]\n\n", 12);
 	printf("collectibles : [%d]->[>0]\ncharacter    : [%d]->[ 1]\nexit\t     : [%d]->[ 1]\n\n",collectible, character, exit);
+	map_erreur(data->map, data);
 	print_simple_line();
 	return (0);
 }
