@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 23:13:41 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:59:57 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,6 @@ typedef enum t_dir
 	south,
 	east,
 	west,
-
 	nor_ea,
 	nor_we,
 	sou_ea,
@@ -463,8 +462,14 @@ bool				find_exit(t_data *data, int *exit);
 int					check_acess_to_input(char **map);
 int					correct_borders(char **map);
 void				free_element(t_memory *memory_current, t_data *data);
-bool	data_maker(t_data *data);
-bool	set_map_size(t_data *data);
-
+bool				data_maker(t_data *data);
+bool				set_map_size(t_data *data);
+void				choice_for_id_0(t_data *data, int x, int y,
+						t_memory *current);
+void				choice_for_id_1(t_data *data, int x, int y,
+						t_memory *current);
+void				check_function(t_data *data, int mode, int x, int y);
+void				look_for_img(t_data *data, char c, int x, int y);
+void				choose_toward_wall(t_data *data, int x, int y);
 
 #endif

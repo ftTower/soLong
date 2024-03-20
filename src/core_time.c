@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:35:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 12:55:26 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:40:12 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	slow_loop(t_data *data)
 		slow_next(data);
 	}
 }
-
 
 void	very_slow_loop(t_data *data)
 {

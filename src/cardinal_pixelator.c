@@ -6,13 +6,11 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:55:00 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 12:51:54 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:32:59 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
-
-
 
 bool	pixel_noso(t_data *data, t_dir dir)
 {

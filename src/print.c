@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 02:02:42 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:04:43 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,7 @@ void	print_map(t_data *data)
 	}
 }
 
-void	debug_map(char **map)
-{
-	int	x;
-	int	y;
 
-	x = 0;
-	y = 0;
-	print_simple_line();
-	while (map[x])
-	{
-		y = 0;
-		while (map[x][y])
-		{
-			ft_printf("%c ", map[x][y]);
-			y++;
-		}
-		ft_printf("|");
-		ft_printf("\n");
-		x++;
-	}
-	print_simple_line();
-}
 
 void	stats(int unite)
 {
@@ -106,8 +85,8 @@ void	render_stats(t_data *data, int x)
 		stats(data->wave);
 	}
 	if (x == 7)
-		ft_printf("\033[48;5;248m  map size  : [%d x %d]    \033[0m", data->size_x,
-			data->size_y);
+		ft_printf("\033[48;5;248m  map size  : [%d x %d]    \033[0m",
+			data->size_x, data->size_y);
 	if (x == 8)
 		ft_printf("\033[48;5;248m                           \033[0m");
 	if (x == 9)
@@ -138,9 +117,9 @@ void	core_terminal(t_data *data)
 				ft_printf("\033[48;5;124m  \033[0m");
 			else if (data->map[x][y] == 'D')
 				ft_printf("\033[48;5;248m  \033[0m");
-			else if (data->map[x][y] == 'C')
+			else if (data->map[x][y] == 'P')
 				ft_printf("\033[48;5;208m  \033[0m");
-			else if (data->map[x][y] == 'T')
+			else if (data->map[x][y] == 'C')
 				ft_printf("\033[48;5;40m  \033[0m");
 			else if (data->map[x][y] == 'E' && data->collectibles_left == 0)
 				ft_printf("\033[48;5;76m  \033[0m");
@@ -160,23 +139,6 @@ void	core_terminal(t_data *data)
 	print_line(data);
 }
 
-void	print_line(t_data *data)
-{
-	int	i;
-
-	i = data->size_y + 14;
-	while (i-- >= 0)
-		ft_printf("\033[0;47m  ");
-	ft_printf("     \n\033[0m");
-}
-
-void	print_simple_line(void)
-{
-	write(1,
-		"======================================================================\n",
-		72);
-}
-
 void	render_terminal(t_data *data)
 {
 	if (gettime() - data->time_start > 500 && gettime()
@@ -186,6 +148,6 @@ void	render_terminal(t_data *data)
 	{
 		ft_printf("\033c");
 		core_terminal(data);
-		//debug_map(data->map);
+		// debug_map(data->map);
 	}
 }

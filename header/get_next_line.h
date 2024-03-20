@@ -6,12 +6,12 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:18:47 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 16:18:50 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:00:40 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE
-# define FT_GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <fcntl.h>
 # include <stdio.h>

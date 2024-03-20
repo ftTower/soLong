@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:02:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 16:05:05 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:55:57 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,25 @@ bool	settings(t_data *data)
 	data_maker(data);
 	return (true);
 }
-
-bool	pre_settings(t_data *data)
+void	get_timer(t_data *data)
 {
-	data->map = get_map(data->map_path);
-	if (!data->map)
-		return (true);
-	if (set_map_size(data))
-		return (true);
-	data->selecter_custom = 0;
 	data->time_render = gettime();
 	data->time_perso = gettime();
 	data->time_capsule = gettime();
 	data->time_ennemy = gettime();
 	data->time_start = gettime();
+}
+
+bool	pre_settings(t_data *data)
+{
+	data->map = get_map(data->map_path);
+	if (!data->map)
+		return (print_simple_line() ,ft_printf("❌ check map file permissions\n"),
+			put_error_msg("ERROR"), true);
+	if (set_map_size(data))
+		return (true);
+	get_timer(data);
+	data->selecter_custom = 0;
 	data->move = 0;
 	data->mov_chunk_x = 20;
 	data->mov_chunk_y = 20;

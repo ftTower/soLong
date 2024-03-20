@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:51:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 13:01:01 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:33:20 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,3 @@ void	ennemy_decisition(t_data *data)
 			if (cote_with_goal(data))
 				(cote_without_goal(data));
 }
-
-

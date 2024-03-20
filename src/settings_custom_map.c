@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 00:40:05 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 21:55:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:01:39 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	custom_indoor_map(t_data *data)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x <= data->size_x)
@@ -46,7 +46,6 @@ int	custom_indoor_map(t_data *data)
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x - 1, y) && check_walls(data, x, y - 1))
 				data->map[x][y] = 'q';
-
 			else if (check_walls(data, x, y) && check_walls(data, x, y - 1)
 				&& check_walls(data, x, y + 1))
 			{
@@ -57,7 +56,6 @@ int	custom_indoor_map(t_data *data)
 				else if (data->selecter_custom == 1 && check_empty(data, x + 1,
 						y))
 					data->map[x][y] = 'x';
-
 				else if (data->selecter_custom == 2 && (check_void(data, x + 1,
 							y) || x == data->size_x))
 					data->map[x][y] = 't';
@@ -74,13 +72,13 @@ int	custom_indoor_map(t_data *data)
 			}
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x, y + 1))
-				data->map[x][y] = 'l'; // up && right
+				data->map[x][y] = 'l';
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x, y - 1))
 				data->map[x][y] = 'm';
 			else if (check_walls(data, x, y) && check_walls(data, x + 1, y)
 				&& check_walls(data, x, y + 1))
-				data->map[x][y] = 'j'; // up && right
+				data->map[x][y] = 'j';
 			else if (check_walls(data, x, y) && check_walls(data, x - 1, y)
 				&& check_walls(data, x + 1, y))
 				data->map[x][y] = 'n';
@@ -100,4 +98,39 @@ int	custom_indoor_map(t_data *data)
 		x++;
 	}
 	return (0);
+}
+
+void	choose_toward_wall(t_data *data, int x, int y)
+{
+	if (check_walls(data, x, y + 1) && check_walls(data, x, y - 1))
+		put_img_to_img(data->base_image, data->textures.down, x * 50, y * 50);
+	if ((check_empty(data, x, y + 1) || check_walls(data, x, y + 1)
+			|| check_char(data, x, y + 1, 'D')) && (!check_empty(data, x, y - 1)
+			|| !check_walls(data, x, y - 1)))
+	{
+		put_img_to_img(data->base_image, data->textures.empty, x * 50, y * 50);
+		put_img_to_img(data->base_image, data->textures.toward_wall_left_empty,
+			x * 50, y * 50);
+	}
+	if ((check_empty(data, x, y - 1) || check_walls(data, x, y - 1)
+			|| check_char(data, x, y - 1, 'D')) && (!check_empty(data, x, y + 1)
+			|| !check_walls(data, x, y + 1)))
+	{
+		put_img_to_img(data->base_image, data->textures.empty, x * 50, y * 50);
+		put_img_to_img(data->base_image, data->textures.toward_wall_right_empty,
+			x * 50, y * 50);
+	}
+	if (check_char(data, x, y + 1, 'X') && check_char(data, x, y - 1, 'X'))
+	{
+		put_img_to_img(data->base_image, data->textures.empty, x * 50, y * 50);
+		put_img_to_img(data->base_image, data->textures.toward_wall, x * 50, y
+			* 50);
+	}
+	if ((check_empty(data, x, y + 1) || check_walls(data, x, y + 1))
+		&& ((check_empty(data, x, y - 1)) || check_walls(data, x, y - 1)))
+	{
+		put_img_to_img(data->base_image, data->textures.floor, x * 50, y * 50);
+		put_img_to_img(data->base_image, data->textures.toward_wall, x * 50, y
+			* 50);
+	}
 }

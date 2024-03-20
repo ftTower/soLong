@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 16:04:26 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:56:19 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,26 @@ bool	set_map_size(t_data *data)
 		return (free_map(data->map), true);
 	data->size_y = y - 1;
 	data->size_x = x - 1;
-	return (false);
+	return (print_simple_line(), ft_printf("❌ check map size\n"),
+		put_error_msg("ERROR"), false);
+}
+
+void	update_input(t_data *data, int x, int y)
+{
+	if (data->map[x][y] == 'C')
+		data->collectibles++;
+	else if (data->map[x][y] == 'P')
+	{
+		data->x = x;
+		data->y = y;
+		data->start_x = data->x;
+		data->start_y = data->y;
+	}
+	else if (data->map[x][y] == 'E')
+	{
+		data->e_x = x;
+		data->e_y = y;
+	}
 }
 
 void	set_input(t_data *data)
@@ -45,23 +64,7 @@ void	set_input(t_data *data)
 	{
 		y = 0;
 		while (data->map[x][y])
-		{
-			if (data->map[x][y] == 'C')
-				data->collectibles++;
-			else if (data->map[x][y] == 'P')
-			{
-				data->x = x;
-				data->y = y;
-				data->start_x = data->x;
-				data->start_y = data->y;
-			}
-			else if (data->map[x][y] == 'E')
-			{
-				data->e_x = x;
-				data->e_y = y;
-			}
-			y++;
-		}
+			update_input(data, x, y++);
 		x++;
 	}
 	return ;
