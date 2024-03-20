@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:02:18 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 15:55:57 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 18:17:24 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ bool	settings(t_data *data)
 	data_maker(data);
 	return (true);
 }
+
 void	get_timer(t_data *data)
 {
 	data->time_render = gettime();
@@ -39,8 +40,9 @@ bool	pre_settings(t_data *data)
 {
 	data->map = get_map(data->map_path);
 	if (!data->map)
-		return (print_simple_line() ,ft_printf("❌ check map file permissions\n"),
-			put_error_msg("ERROR"), true);
+		return (print_simple_line(),
+			ft_printf("❌ check map file permissions\n"), put_error_msg("ERROR"),
+			true);
 	if (set_map_size(data))
 		return (true);
 	get_timer(data);

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 15:59:57 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 20:32:42 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -270,8 +270,7 @@ int					check_next(t_data *data, int x, int y);
 int					borders(char c);
 
 // custom_map
-int					custom_indoor_map(t_data *data);
-
+void				custom_indoor_map(t_data *data);
 // free
 void				free_map(char **map);
 
@@ -471,5 +470,9 @@ void				choice_for_id_1(t_data *data, int x, int y,
 void				check_function(t_data *data, int mode, int x, int y);
 void				look_for_img(t_data *data, char c, int x, int y);
 void				choose_toward_wall(t_data *data, int x, int y);
+void				debug_map(char **map);
+bool	tri_four_wall(t_data *data, int x, int y);
+bool	one_two_wall(t_data *data, int x, int y);
+
 
 #endif

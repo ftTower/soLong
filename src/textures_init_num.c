@@ -6,15 +6,14 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:23:15 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/17 22:10:49 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 20:34:33 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-bool	init_num(t_data *data)
+bool	initadd_num(t_data *data)
 {
-	ft_printf("=========================================================================================\n| NUMBER_TEXTURES\n=========================================================================================\n");
 	add_img_to_garbage_memory(data, &data->textures.num0,
 		"num_0\t\t      :./img/num/0.xpm:N0");
 	add_img_to_garbage_memory(data, &data->textures.num1,
@@ -35,6 +34,12 @@ bool	init_num(t_data *data)
 		"num_8\t\t      :./img/num/8.xpm:N8");
 	add_img_to_garbage_memory(data, &data->textures.num9,
 		"num_9\t\t      :./img/num/9.xpm:N9");
+}
+
+bool	init_num(t_data *data)
+{
+	put_error_msg("| NUMBER_TEXTURES");
+	initadd_num(data);
 	if (!data->textures.num0.img || !data->textures.num1.img
 		|| !data->textures.num2.img || !data->textures.num3.img
 		|| !data->textures.num4.img || !data->textures.num5.img

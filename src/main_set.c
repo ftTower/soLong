@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 17:46:08 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 15:56:19 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 18:24:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ bool	set_map_size(t_data *data)
 		x++;
 	}
 	if (x < 1 && y < 1)
-		return (free_map(data->map), true);
+		return (print_simple_line(),
+			ft_printf("❌ no map or wrong extension (.ber)\n"),
+			put_error_msg("ERROR"), free_map(data->map), true);
 	data->size_y = y - 1;
 	data->size_x = x - 1;
-	return (print_simple_line(), ft_printf("❌ check map size\n"),
-		put_error_msg("ERROR"), false);
+	return (false);
 }
 
 void	update_input(t_data *data, int x, int y)
@@ -76,9 +77,10 @@ void	set_window_size(t_data *data)
 	data->win_x = (data->size_y + 1) * 50;
 	if (data->win_x > 1080 || data->win_y > 1920)
 	{
-		write(1, "[BAD MAP SIZE]\n\n", 17);
+		put_error_msg("[BAD MAP SIZE]");
 		ft_printf("your map size [x:%d][y:%d]\n", data->size_x, data->size_y);
 		write(1, "max map size  [x:38][y: 21]\n", 28);
+		print_simple_line();
 		free_map(data->map);
 		exit(1);
 	}

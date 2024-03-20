@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 01:57:25 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 20:32:05 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ bool	init_garbage_memory(t_data *data)
 	return (true);
 }
 
-void	give_data_to_element(t_memory *memory_element, t_img *new_img, char **tab)
+void	give_data_to_element(t_memory *memory_element, t_img *new_img,
+		char **tab)
 {
 	memory_element->name = tab[0];
 	memory_element->path = tab[1];
@@ -35,10 +36,10 @@ void	give_data_to_element(t_memory *memory_element, t_img *new_img, char **tab)
 	memory_element->img = new_img;
 }
 
-bool	make_element(t_data *data, t_memory *memory_temp, t_img *new_img, char **tab)
+bool	make_element(t_data *data, t_memory *memory_temp, t_img *new_img,
+		char **tab)
 {
 	t_memory	*memory_element;
-
 
 	memory_element = NULL;
 	memory_element = malloc(sizeof(t_memory));
@@ -55,9 +56,10 @@ bool	make_element(t_data *data, t_memory *memory_temp, t_img *new_img, char **ta
 		memory_element->next = memory_temp;
 	}
 	give_data_to_element(memory_element, new_img, tab);
-	ft_printf("| ✅ : \033[38;5;15m%s\033[0m | \033[38;5;129m%p\033[0m | \033[38;5;118m%s\033[0m | \033[38;5;118m%s\033[0m\n",
-		memory_element->name, memory_element->ptr, memory_element->id,
-		memory_element->path);
+	ft_printf("| ✅ : \033[38;5;15m%s\033[0m | \033[38;5;129m%p\033[0m |",
+		memory_element->name, memory_element->ptr);
+	ft_printf(" \033[38;5;118m%s\033[0m | \033[38;5;118m%s\033[0m\n",
+		memory_element->id, memory_element->path);
 	data->memory = memory_element;
 	usleep(5000);
 	return (false);
@@ -96,8 +98,8 @@ bool	clean_garbage_memory(t_data *data, int mode)
 	if (!data->memory)
 		return (false);
 	memory_current = data->memory;
-	//if (mode != -1)
-	//	ft_printf("\033c");
+	if (mode != -1)
+		ft_printf("\033c");
 	put_error_msg("| FREE_TEXTURES");
 	while (memory_current)
 	{
@@ -106,11 +108,11 @@ bool	clean_garbage_memory(t_data *data, int mode)
 		free_element(memory_current, data);
 		memory_current = temp;
 	}
-	//if (mode != -1)
-	//{
-	//	ft_printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\t");
-	//	ft_printf("you finished wave \033[38;5;125m%d\033[0m !\n\n\n\n\n",
-	//		data->wave);
-	//}
+	if (mode != -1)
+	{
+		ft_printf("\033c\n\n\n\n\n\t\t ✅ CLEARED TEXTURES\n\n\t\t");
+		ft_printf("you finished wave \033[38;5;125m%d\033[0m !\n\n\n\n\n",
+			data->wave);
+	}
 	return (true);
 }

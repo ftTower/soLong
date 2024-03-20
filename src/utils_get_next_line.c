@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+      
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2023/11/27 22:38:23 by marvin            #+#    #+#             */
 /*   Updated: 2023/11/27 22:38:23 by marvin           ###   ########.fr       */
@@ -16,11 +16,10 @@
 // #include "get_next_line.h"
 #include "../header/so_long.h"
 
-
 void	extract_line(t_list *stash, char **line)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	if (stash == NULL)
 		return ;
@@ -47,7 +46,7 @@ void	extract_line(t_list *stash, char **line)
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -57,8 +56,8 @@ size_t	ft_strlen(const char *str)
 
 void	free_stash(t_list *stash)
 {
-	t_list *current;
-	t_list *next;
+	t_list	*current;
+	t_list	*next;
 
 	current = stash;
 	while (current)
@@ -72,10 +71,10 @@ void	free_stash(t_list *stash)
 
 void	clear_stash(t_list **stash)
 {
-	t_list *last;
-	t_list *clean_node;
-	int i;
-	int j;
+	t_list	*last;
+	t_list	*clean_node;
+	int		i;
+	int		j;
 
 	clean_node = malloc(sizeof(t_list));
 	if (stash == NULL || clean_node == NULL)
@@ -101,21 +100,18 @@ void	clear_stash(t_list **stash)
 
 extern char	*get_next_line(int fd)
 {
-	static t_list *stash = NULL;
-	char *line;
-	int readed;
+	static t_list	*stash = NULL;
+	char			*line;
+	int				readed;
 
 	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, &line, 0) < 0)
 		return (NULL);
 	readed = 1;
 	line = NULL;
-	// read from fd and add to linker list
 	read_and_stash(&stash, &readed, fd);
 	if (stash == NULL)
 		return (NULL);
-	// extract from stash to line
 	extract_line(stash, &line);
-	// cleanup la stash
 	clear_stash(&stash);
 	if (line[0] == '\0')
 	{

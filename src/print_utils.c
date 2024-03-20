@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:02:26 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 16:04:22 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 20:22:47 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	print_line(t_data *data)
 
 void	print_simple_line(void)
 {
-	int i;
+	int	i;
 
 	i = 80;
-	while(i--)
+	while (i--)
 		write(1, "=", 1);
-	write(1, "\n", 1);  
+	write(1, "\n", 1);
 }
 
 void	debug_map(char **map)

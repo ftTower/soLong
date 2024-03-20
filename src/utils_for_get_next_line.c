@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils_for_get_next_line.c                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: tauer <tauer@student.42.fr>                +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/03/17 22:03:24 by tauer             #+#    #+#             */
 /*   Updated: 2024/03/17 22:03:24 by tauer            ###   ########.fr       */
 /*                                                                            */
@@ -14,7 +17,7 @@
 
 t_list	*ft_lst_get_last(t_list *stash)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = stash;
 	while (current && current->next)
@@ -24,8 +27,8 @@ t_list	*ft_lst_get_last(t_list *stash)
 
 int	find_newline(t_list *stash)
 {
-	int i;
-	t_list *current;
+	int		i;
+	t_list	*current;
 
 	if (stash == NULL)
 		return (0);
@@ -42,9 +45,9 @@ int	find_newline(t_list *stash)
 
 void	add_to_stash(t_list **stash, char *buff, int readed)
 {
-	int i;
-	t_list *last;
-	t_list *new_node;
+	int		i;
+	t_list	*last;
+	t_list	*new_node;
 
 	new_node = malloc(sizeof(t_list));
 	if (new_node == NULL)
@@ -69,10 +72,9 @@ void	add_to_stash(t_list **stash, char *buff, int readed)
 	last->next = new_node;
 }
 
-
 void	read_and_stash(t_list **stash, int *readed_ptr, int fd)
 {
-	char *buff;
+	char	*buff;
 
 	while (!find_newline(*stash) && *readed_ptr != 0)
 	{
@@ -93,8 +95,8 @@ void	read_and_stash(t_list **stash, int *readed_ptr, int fd)
 
 void	generate_line(char **line, t_list *stash)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	len = 0;
 	while (stash)
