@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:27:02 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 15:08:24 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/20 02:00:14 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,5 +175,5 @@ void	global_render(t_data *data)
 	if (data->wave > 0 && data->life_ennemy > 0)
 		render_ennemy(data, data->base_image, data->textures.current_ennemy);
 	render_compteur(data);
-	//render_terminal(data);
+	render_terminal(data);
 }

@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/19 16:20:36 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/19 23:13:41 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -462,7 +462,9 @@ bool				find_bad_char(t_data *data);
 bool				find_exit(t_data *data, int *exit);
 int					check_acess_to_input(char **map);
 int					correct_borders(char **map);
-void	free_element(t_memory *memory_current, t_data *data);
+void				free_element(t_memory *memory_current, t_data *data);
+bool	data_maker(t_data *data);
+bool	set_map_size(t_data *data);
 
 
 #endif
