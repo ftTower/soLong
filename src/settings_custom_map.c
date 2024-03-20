@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 00:40:05 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 20:21:37 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/21 00:50:35 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	custom_indoor_map(t_data *data)
 			else if (data->map[x][y] == 'D')
 				data->map[x][y] = 'D';
 			else if (tri_four_wall(data, x, y))
-				;
+			{}
 			else if (one_two_wall(data, x, y))
-				;
+			{}
 			y++;
 		}
 		x++;

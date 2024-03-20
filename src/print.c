@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:04:11 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 20:22:37 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/21 00:52:02 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void	render_terminal(t_data *data)
 	if (gettime() - data->time_start > 1500)
 	{
 		ft_printf("\033c");
-		debug_map(data->map);
+		core_terminal(data);
 	}
 }
-		//core_terminal(data);
+		// debug_map(data->map);

@@ -6,13 +6,13 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:23:15 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/20 20:34:33 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/21 00:51:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-bool	initadd_num(t_data *data)
+void	initadd_num(t_data *data)
 {
 	add_img_to_garbage_memory(data, &data->textures.num0,
 		"num_0\t\t      :./img/num/0.xpm:N0");
