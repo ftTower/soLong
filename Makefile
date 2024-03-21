@@ -6,16 +6,18 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/03/21 14:22:13 by tauer            ###   ########.fr        #
+#    Updated: 2024/03/21 20:06:00 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_DIR		=	src_bonus
+SRC_BONUS_DIR		=	src_bonus
+SRC_DIR		=	src
 BUILD_DIR	=	build
 NAME		=	so_long
-CFLAG		=	-Wall -Wextra -Werror -I./header -I./minilibx-linux/ -g3
+CFLAG		=	-Wall -Wextra -Werror -I./header/ -I./minilibx-linux/ -g3
 LDFLAGS 	= 	-L./minilibx-linux -lmlx_Linux -lmlx -lX11 -lXext
 SRC			=	$(wildcard $(SRC_DIR)/*.c)
+SRC_BONUS			=	$(wildcard $(SRC_BONUS_DIR)/*.c)
 CC			=	cc # Add this line
 
 OBJ		=	$(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o, $(SRC))
@@ -32,6 +34,7 @@ $(NAME):$(OBJ)
 	@$(CC) $(OBJ) -o $(NAME) $(CFLAG) $(LDFLAGS)
 	@clear
 
+
 clear :
 	@clear
 	@echo "42Paris : $(NAME)"
@@ -46,6 +49,12 @@ fclean : clean
 	@echo "Clean   : ./$(NAME)"
 
 aclean : fclean cleanlib clear
+
+bonus: $(SRC_BONUS:.c=.o)
+	@echo $(SRC_BONUS)
+	@$(CC) $(SRC_BONUS:.c=.o) -o $(NAME) $(CFLAG) $(LDFLAGS)
+	@clear
+	
 
 minlibx :
 	@git clone https://github.com/42Paris/minilibx-linux.git

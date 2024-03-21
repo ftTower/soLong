@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:46:34 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:50:41 by tauer            ###   ########.fr       */
+/*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/21 19:55:02 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	looper(t_data *data)
 {
-	loops(data);
+	if (data->collectibles_left > 0)
+		data->textures.current_exit = data->textures.exit_1;
+	else
+		data->textures.current_exit = data->textures.exit_19;
+	global_render(data);
 	end_wave(data);
 	security(data);
 	return (0);

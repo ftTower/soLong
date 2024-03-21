@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:16:59 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:50:15 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/21 19:02:45 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -476,6 +476,6 @@ bool				one_two_wall(t_data *data, int x, int y);
 void				colors_erreur_char(char **map, int x, int y);
 void				colors_erreur_size(char **map, int x_error, int x, int y);
 void				colors_erreur_common(char **map, int x, int y);
-void	colors_terminal(t_data *data, int x, int y);
+void				colors_terminal(t_data *data, int x, int y);
 
 #endif
