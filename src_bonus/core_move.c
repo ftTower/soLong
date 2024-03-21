@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   core_move.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/18 21:57:35 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/21 14:51:41 by tauer            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../header/so_long_bonus.h"
+
+void	move_up(t_data *data)
+{
+	change_map(data, north);
+	data->textures.current_perso = data->textures.back_perso;
+}
+
+void	move_down(t_data *data)
+{
+	change_map(data, south);
+	data->textures.current_perso = data->textures.running_1;
+}
+
+void	move_right(t_data *data)
+{
+	change_map(data, east);
+	data->textures.current_perso = data->textures.right_perso;
+}
+
+void	move_left(t_data *data)
+{
+	change_map(data, west);
+	data->textures.current_perso = data->textures.left_perso;
+}

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 14:46:34 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:50:41 by tauer            ###   ########.fr       */
+/*   Created: 2024/01/06 15:13:58 by tauer             #+#    #+#             */
+/*   Updated: 2024/03/21 14:52:55 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/so_long.h"
+#include "../header/so_long_bonus.h"
 
 int	looper(t_data *data)
 {

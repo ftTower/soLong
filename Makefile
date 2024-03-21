@@ -6,11 +6,11 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/03/11 15:10:26 by tauer            ###   ########.fr        #
+#    Updated: 2024/03/21 14:22:13 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_DIR	=	src
+SRC_DIR		=	src_bonus
 BUILD_DIR	=	build
 NAME		=	so_long
 CFLAG		=	-Wall -Wextra -Werror -I./header -I./minilibx-linux/ -g3
