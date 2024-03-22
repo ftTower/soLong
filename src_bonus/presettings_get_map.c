@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:20:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:52:59 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/22 11:03:55 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ char	*clean_linefeed(char *str)
 	return (dup);
 }
 
-void	*malloc_t(unsigned int size)
+void	*malloc_t(unsigned int size, char **dst)
 {
 	void	*myvar;
 
 	myvar = malloc(size);
 	if (!myvar)
+	{
+		free(*dst);	
 		exit(1);
+	}
 	return (myvar);
 }
 
@@ -52,7 +55,7 @@ void	ft_strmcat(char **dst, char *src)
 
 	dst_len = ft_strlen(*dst);
 	src_len = ft_strlen(src);
-	out = malloc_t((dst_len + src_len + 1) * sizeof(char));
+	out = malloc_t((dst_len + src_len + 1) * sizeof(char), dst);
 	k = 0;
 	while (k < (dst_len + src_len))
 	{

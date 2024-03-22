@@ -6,7 +6,7 @@
 #    By: tauer <tauer@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 17:59:50 by tauer             #+#    #+#              #
-#    Updated: 2024/03/21 20:06:00 by tauer            ###   ########.fr        #
+#    Updated: 2024/03/22 11:07:30 by tauer            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ clear :
 
 clean : clear
 	@rm -rf build/
+	# @rm src_bonus/*.o
 	@echo "Clean   : *.o in build !"
 
 fclean : clean
