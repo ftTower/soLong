@@ -43,6 +43,7 @@ echo "==========================================================================
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./so_long map/error/wrong_ext.c
 sleep 2
 echo "============================================================================================="
+chmod u-r map/error/chmod_map.ber
 valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./so_long map/error/chmod_map.ber
 sleep 2
 echo "============================================================================================="

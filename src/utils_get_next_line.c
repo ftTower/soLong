@@ -88,7 +88,7 @@ void	clear_stash(t_list **stash)
 		i++;
 	clean_node->content = malloc(sizeof(char) * ((ft_strlen(last->content) - i)
 				+ 1));
-	if (clean_node == NULL)
+	if (clean_node->content == NULL)
 		return ;
 	j = 0;
 	while (last->content[i])
@@ -122,3 +122,4 @@ extern char	*get_next_line(int fd)
 	}
 	return (line);
 }
+

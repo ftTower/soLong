@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:55:45 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 19:44:21 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 22:03:03 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ typedef struct s_textures
 	t_img			ennemy_left;
 
 	t_img			capsule;
-
-	t_img			capsule_1;
 
 	t_img			exit_1;
 	t_img			exit_19;
@@ -350,6 +348,9 @@ bool				v_south_ea(t_data *data);
 
 size_t				ft_strlen(const char *str);
 char				**tab_tab_split(const char *s, char c);
+char				*ft_strdup(const char *s);
+char				*get_next_line(int fd);
+char				**ft_split(char *s, char c, int mode);
 void				set_key_false(t_data *data);
 char				*ft_itoa(int nb);
 
@@ -398,5 +399,9 @@ void				colors_erreur_char(char **map, int x, int y);
 void				colors_erreur_size(char **map, int x_error, int x, int y);
 void				colors_erreur_common(char **map, int x, int y);
 void				colors_terminal(t_data *data, int x, int y);
+void				up(t_data *data);
+void				down(t_data *data);
+void				right(t_data *data);
+void				left(t_data *data);
 
 #endif

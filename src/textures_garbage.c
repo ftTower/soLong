@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/22 11:00:05 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/22 18:54:04 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ bool	make_element(t_data *data, t_memory *memory_temp, t_img *new_img,
 	ft_printf(" \033[38;5;118m%s\033[0m | \033[38;5;118m%s\033[0m\n",
 		memory_element->id, memory_element->path);
 	data->memory = memory_element;
+	usleep(5000);
 	return (false);
 }
 
@@ -102,6 +103,7 @@ bool	clean_garbage_memory(t_data *data, int mode)
 	put_error_msg("| FREE_TEXTURES");
 	while (memory_current)
 	{
+		usleep(5000);
 		temp = memory_current->next;
 		free_element(memory_current, data);
 		memory_current = temp;

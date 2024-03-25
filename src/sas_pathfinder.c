@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 01:44:47 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 18:58:21 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 23:03:08 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	**resolved_path(t_data *data, char **map, int x, int y)
 {
+	if (!map)
+		return (NULL);
 	map[x][y] = 'X';
 	if ((x > 0) && ((map[x - 1][y] == '0' || map[x - 1][y] == 'C' || map[x
 			- 1][y] == 'E')))

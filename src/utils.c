@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:14:57 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 19:18:04 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 22:58:39 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	delete_emptyness(t_data *data, char **map)
 	int	y;
 
 	x = 0;
+	if (!data->map)
+		return ;
 	while (map[x])
 	{
 		y = 0;
@@ -37,7 +39,7 @@ void	security(t_data *data)
 		|| data->y >= __INT_MAX__ || data->mov_chunk_x >= __INT_MAX__
 		|| data->mov_chunk_y >= __INT_MAX__)
 	{
-		printf("[security] : variable out of range\n");
+		ft_printf("[security] : variable out of range\n");
 		close_win(data);
 	}
 }

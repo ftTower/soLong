@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 20:47:21 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:53:34 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/22 19:42:49 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	map_erreur_size(char **map, int x_error)
 		y = 0;
 		while (map[x][y])
 			colors_erreur_size(map, x_error, x, y++);
-		printf("\n");
+		ft_printf("\n");
 		x++;
 	}
 }
@@ -59,7 +59,7 @@ void	map_erreur_char(char **map)
 		y = 0;
 		while (map[x][y])
 			colors_erreur_char(map, x, y++);
-		printf("\n");
+		ft_printf("\n");
 		x++;
 	}
 }

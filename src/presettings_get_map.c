@@ -6,43 +6,42 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:20:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/22 11:02:40 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 23:05:03 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-char	*clean_linefeed(char *str)
-{
-	size_t	i;
-	size_t	i2;
-	char	*dup;
+// char	*clean_linefeed(char *str)
+// {
+// 	size_t	i;
+// 	size_t	i2;
+// 	char	*dup;
 
-	i = 0;
-	i2 = 0;
-	while (str[i] && str[i] != '\n')
-		i++;
-	dup = (char *)malloc(sizeof(char) * (i + 1));
-	while (i2 < i)
-	{
-		dup[i2] = str[i2];
-		i2++;
-	}
-	dup[i2] = '\0';
-	free(str);
-	return (dup);
-}
+// 	i = 0;
+// 	i2 = 0;
+// 	while (str[i] && str[i] != '\n')
+// 		i++;
+// 	dup = (char *)malloc(sizeof(char) * (i + 1));
+// 	if (!dup)
+// 		return (NULL);
+// 	while (i2 < i)
+// 	{
+// 		dup[i2] = str[i2];
+// 		i2++;
+// 	}
+// 	dup[i2] = '\0';
+// 	free(str);
+// 	return (dup);
+// }
 
-void	*malloc_t(unsigned int size, char **dst)
+void	*malloc_t(unsigned int size)
 {
 	void	*myvar;
 
 	myvar = malloc(size);
 	if (!myvar)
-	{
-		free(*dst);	
 		exit(1);
-	}
 	return (myvar);
 }
 
@@ -53,9 +52,11 @@ void	ft_strmcat(char **dst, char *src)
 	int		src_len;
 	int		k;
 
+	if (!dst || !src)
+		return ;
 	dst_len = ft_strlen(*dst);
 	src_len = ft_strlen(src);
-	out = malloc_t((dst_len + src_len + 1) * sizeof(char), dst);
+	out = malloc_t((dst_len + src_len + 1) * sizeof(char));
 	k = 0;
 	while (k < (dst_len + src_len))
 	{
@@ -86,7 +87,11 @@ char	**get_map(char *path)
 	if (fd < 0)
 		return (NULL);
 	map_line = ft_strdup("");
+	if (!map_line)
+		return (NULL);
 	line = get_next_line(fd);
+	if (!line)
+		return (close(fd) ,free(map_line), NULL);
 	while (line)
 	{
 		ft_strmcat(&map_line, line);

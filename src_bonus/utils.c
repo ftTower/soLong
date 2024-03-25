@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:14:57 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:55:19 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/22 19:43:31 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	security(t_data *data)
 		|| data->y >= __INT_MAX__ || data->mov_chunk_x >= __INT_MAX__
 		|| data->mov_chunk_y >= __INT_MAX__)
 	{
-		printf("[security] : variable out of range\n");
+		ft_printf("[security] : variable out of range\n");
 		close_win(data);
 	}
 }

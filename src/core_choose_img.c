@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:34:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 19:46:02 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 22:05:42 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ void	choice_for_id_1(t_data *data, int x, int y, t_memory *current)
 {
 	if (current->id[1] == 'n')
 		choose_toward_wall(data, x, y);
-	if (current->id[1] == 'E')
+	else if (current->id[1] == 'E')
 		put_img_to_img(data->base_image, data->textures.current_exit, x * 50, y
+			* 50);
+	else if (current->id[1] == 'D')
+		put_img_to_img(data->base_image, data->textures.capsule, x * 50 - 50, y
 			* 50);
 	else
 		put_img_to_img(data->base_image, *(current)->img, x * 50, y * 50);

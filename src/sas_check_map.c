@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:15:50 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 18:58:03 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/22 19:40:07 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	borders(char c)
 	if (c == 'X')
 	{
 		print_simple_line();
-		printf("[❌ map not closed]\n");
+		ft_printf("[❌ map not closed]\n");
 		print_simple_line();
 		return (1);
 	}

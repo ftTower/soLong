@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:05:41 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 19:48:24 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/25 22:02:30 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ bool	init_rest(t_data *data)
 	add_img_to_garbage_memory(data, &data->textures.collectibles,
 		"collectibles\t      :./img/collectibles.xpm:0C");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_outdoor,
-		"screen_outdoor\t      :./img/screen_outdoor_animation/wall_screen_outdoor_3.xpm:0y");
+		"screen_outdoor\t      :./img/screen_outdoor_animation/\
+wall_screen_outdoor_3.xpm:0y");
 	add_img_to_garbage_memory(data, &data->textures.wall_screen_indoor,
-		"screen_indoor\t      :./img/wall_screen_animation/wall_screen_indoor_1.xpm:0t");
+		"screen_indoor\t      :./img/wall_screen_animation/\
+wall_screen_indoor_1.xpm:0t");
 	if (!data->textures.collectibles.img
 		|| !data->textures.wall_screen_indoor.img
 		|| !data->textures.wall_screen_outdoor.img)
@@ -53,6 +55,16 @@ bool	init_exit(t_data *data)
 	add_img_to_garbage_memory(data, &data->textures.exit_19,
 		"exit_19\t      :./img/exit/exit_open_19.xpm:0E");
 	if (!data->textures.exit_19.img || !data->textures.exit_1.img)
+		return (false);
+	return (true);
+}
+
+bool	init_capsule(t_data *data)
+{
+	put_error_msg("| CAPSULE_TEXTURES");
+	add_img_to_garbage_memory(data, &data->textures.capsule,
+		"capsule_0              :./img/capsule_animation/capsule.xpm:YD");
+	if (!data->textures.capsule.img)
 		return (false);
 	return (true);
 }
