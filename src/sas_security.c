@@ -93,7 +93,7 @@ int	map_ok(t_data *data)
 	if (!dup)
 		return (0);
 	if (!resolved_path(data, dup, data->x, data->y))
-		return (0);
+		return (free_map(dup), 0);
 	if (check_acess_to_input(dup) && correct_borders(dup))
 	{
 		delete_emptyness(data, dup);

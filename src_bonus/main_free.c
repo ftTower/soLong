@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:52:43 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/26 12:30:01 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	free_element(t_memory *memory_current, t_data *data)
 {
 	ft_printf("| ❌ : \033[38;5;129m%p\033[0m | \033[38;5;15m%s\033[0m\n",
 		memory_current->ptr, memory_current->name);
-	mlx_destroy_image(data->mlx, memory_current->ptr);
+	if (data->mlx && memory_current->ptr)
+		mlx_destroy_image(data->mlx, memory_current->ptr);
 	free(memory_current->id);
 	free(memory_current->name);
 	free(memory_current->path);
@@ -25,7 +26,8 @@ void	free_element(t_memory *memory_current, t_data *data)
 
 int	close_win(t_data *data)
 {
-	free_map(data->map);
+	if (data->map)
+		free_map(data->map);
 	mlx_destroy_image(data->mlx, data->base_image.img);
 	clean_garbage_memory(data, (int)data->move);
 	mlx_destroy_window(data->mlx, data->win);
@@ -39,6 +41,8 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
+	if (!map)
+		return ;
 	while (map[i])
 		free(map[i++]);
 	free(map);

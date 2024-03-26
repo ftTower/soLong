@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 19:20:10 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/25 22:53:52 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/26 12:24:13 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
+	if (!map)
+		return ;
 	while (map[i])
 		free(map[i++]);
 	free(map);

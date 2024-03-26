@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:20:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/21 14:52:59 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/26 12:30:41 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char	**get_map(char *path)
 	if (fd < 0)
 		return (NULL);
 	map_line = ft_strdup("");
+	if (!map_line)
+		return (close(fd), NULL);
 	line = get_next_line(fd);
 	while (line)
 	{

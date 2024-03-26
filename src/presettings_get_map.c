@@ -6,7 +6,7 @@
 /*   By: tauer <tauer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 15:20:06 by tauer             #+#    #+#             */
-/*   Updated: 2024/03/25 23:05:03 by tauer            ###   ########.fr       */
+/*   Updated: 2024/03/26 12:33:17 by tauer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	ft_strmcat(char **dst, char *src)
 	int		src_len;
 	int		k;
 
-	if (!dst || !src)
-		return ;
 	dst_len = ft_strlen(*dst);
 	src_len = ft_strlen(src);
 	out = malloc_t((dst_len + src_len + 1) * sizeof(char));
@@ -91,7 +89,7 @@ char	**get_map(char *path)
 		return (NULL);
 	line = get_next_line(fd);
 	if (!line)
-		return (close(fd) ,free(map_line), NULL);
+		return (close(fd), free(map_line), NULL);
 	while (line)
 	{
 		ft_strmcat(&map_line, line);
