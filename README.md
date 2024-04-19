@@ -17,6 +17,6 @@
 
 ## Bonus
 
- * Player Loss: The player can lose if their character is touched by an enemy patrol.
- * Sprite Animations: The game uses sprite animations for the character and enemies.
- * Movement Count Display: The total number of moves is displayed directly in the game window.
+ * `Player Loss` : The player can lose if their character is touched by an enemy patrol.
+ * `Sprite Animations` : The game uses sprite animations for the character and enemies.
+ * `Movement Count Display` : The total number of moves is displayed directly in the game window.
