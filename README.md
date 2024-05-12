@@ -1,6 +1,6 @@
 # ft_so_long
 
-![alt tag](https://github.com/thomaue/ft_so_long/blob/main/md_asset/Screencast%20from%2005-12-2024%2010%3A50%3A08%20PM.webm)
+![alt tag](md_asset/Screencast from 05-12-2024 10:50:08 PM.webm)
 
 > This project is about creating a 2D game using the MiniLibX graphics library. The game is called "So Long" and the goal is to guide a character through a map to collect items and reach the exit.
 
