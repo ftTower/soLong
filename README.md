@@ -1,7 +1,8 @@
 # ft_so_long
 
-![alt tag](https://github.com/thomaue/ft_so_long/blob/main/md_asset/ezgif-3-1614a8c958.gif)
+![alt tag](https://github.com/thomaue/ft_so_long/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
 
+![alt tag](https://github.com/thomaue/ft_so_long/blob/main/md_asset/ezgif-3-1614a8c958.gif)
 
 > This project is about creating a 2D game using the MiniLibX graphics library. The game is called "So Long" and the goal is to guide a character through a map to collect items and reach the exit.
 
@@ -24,4 +25,3 @@
  * `Sprite Animations` : The game uses sprite animations for the character and enemies.
  * `Movement Count Display` : The total number of moves is displayed directly in the game window.
 
-![alt tag](https://github.com/thomaue/ft_so_long/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
