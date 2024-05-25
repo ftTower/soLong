@@ -1,6 +1,6 @@
 # ft_so_long - 42
 
-![alt tag](https://github.com/ftTower/so_long/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
+![small](https://github.com/ftTower/so_long/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
 
 so long 42
 
