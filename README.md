@@ -4,7 +4,7 @@
 
 Ce projet consiste à développer un jeu en 2D en utilisant la bibliothèque graphique **MiniLibX**. Le jeu, nommé "So Long", a pour but de guider un personnage 🧟‍♂️ à travers une carte, de collecter des objets 🧪 et de parvenir à l'exit 🏁. Ce projet vous permettra de développer des compétences en gestion de fenêtres, manipulation de textures et animation de sprites.
 
-![Gameplay Preview](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
+![Gameplay Preview](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-1614a8c958.gif)
 
 ---
 
@@ -49,8 +49,6 @@ Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en 
 ![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
 
 
-
-
 ---
 
 ## 🧪 Installation et Utilisation
@@ -59,4 +57,6 @@ Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en 
    ```bash
    git clone https://github.com/ftTower/soLong.git
    cd so_long
+   make minlibx
+   make
   ```
