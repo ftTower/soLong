@@ -5,6 +5,7 @@
 
 ## mandatory version
 ![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20015825.png)
 
 ## loading
 ![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-e408267531.gif)
@@ -16,9 +17,14 @@ so long 42
 
 ![alt tag](https://github.com/ftTower/so_long/blob/main/md_asset/ezgif-3-1614a8c958.gif)
 
-![alt tag]()
+## some nice errors messages
 
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20015825.png)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020253.png)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020328.png)
+![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
+
 
 
 
