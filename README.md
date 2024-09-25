@@ -42,8 +42,8 @@ Ces fonctionnalités supplémentaires apportent une meilleure expérience utilis
 
 Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en cas de problème de chargement ou de manipulation des fichiers :
 
-![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
 ![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
+![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
 ![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020328.png)
 ![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020253.png)
 ![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
