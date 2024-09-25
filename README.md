@@ -1,7 +1,5 @@
 # 🧟‍🔬 ft_so_long
 
-# 🧟‍🔬 ft_so_long
-
 ## 🇬🇧 Introduction
 
 This project involves creating a 2D game using the **MiniLibX** graphics library. The game, called "So Long," aims to guide a character 🧟‍♂️ through a map, collect items 🧪, and reach the exit 🏁. This project will help you develop skills in window management, texture manipulation, and sprite animation.
