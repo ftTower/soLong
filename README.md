@@ -1,6 +1,6 @@
 # ft_so_long - 42
 
-![small]([https://github.com/ftTower/so_long/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif](https://github.com/ftTower/soLong/blob/main/md_asset/Enregistrement%202024-09-25%20015454.mp4))
+![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
 
 so long 42
 
