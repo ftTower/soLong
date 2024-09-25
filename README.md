@@ -1,7 +1,14 @@
 # ft_so_long - 42
+
+## bonus version
 ![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-616148c4a7.gif)
 
+## mandatory version
 ![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
+
+## loading
+![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-e408267531.gif)
+
 
 so long 42
 
