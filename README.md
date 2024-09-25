@@ -58,4 +58,4 @@ Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en 
    git clone https://github.com/ftTower/soLong.git
    cd so_long
    make minlibx
-   make```
+   make
