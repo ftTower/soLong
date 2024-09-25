@@ -1,48 +1,55 @@
-# ft_so_long - 42
+# 🧟‍🔬 ft_so_long
 
-## bonus version
-![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-616148c4a7.gif)
+## Introduction
 
-## mandatory version
-![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
+Ce projet consiste à développer un jeu en 2D en utilisant la bibliothèque graphique **MiniLibX**. Le jeu, nommé "So Long", a pour but de guider un personnage 🧟‍♂️ à travers une carte, de collecter des objets 🧪 et de parvenir à l'exit 🏁. Ce projet vous permettra de développer des compétences en gestion de fenêtres, manipulation de textures et animation de sprites.
 
-> This project is about creating a 2D game using the MiniLibX graphics library. The game is called "So Long" and the goal is to guide a character through a map to collect items and reach the exit.
-![alt tag](https://github.com/ftTower/so_long/blob/main/md_asset/ezgif-3-1614a8c958.gif)
+![Gameplay Preview](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-bf6fbe38a6.gif)
 
-## autotiling
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20015825.png)
+---
 
-## loading
-![small](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-e408267531.gif)
+## 🧟‍♂️ Fonctionnalités Obligatoires (Mandatory)
 
+Le jeu respecte les exigences suivantes :
 
-## some nice errors messages
+- **🧠 2D Gameplay** : Le jeu se déroule en vue 2D, soit en vue de dessus, soit en défilement horizontal.
+- **🔬 Mouvement du Personnage** : Le joueur peut déplacer le personnage à l’aide des touches `W`, `A`, `S` et `D`.
+- **🧱 Obstacles** : Le personnage ne peut pas traverser les murs.
+- **🧪 Collection d’Objets** : Le joueur doit récupérer tous les objets présents sur la carte avant d’accéder à la sortie.
+- **🚪 Sortie** : Le joueur doit atteindre la sortie pour terminer le niveau.
+- **🔢 Comptage des Mouvements** : Le nombre total de mouvements effectués par le joueur est affiché en temps réel.
+- **🪟 Gestion de Fenêtre** : La fenêtre du jeu peut être correctement redimensionnée et fermée.
+- **🖼️ Chargement d’Images** : Le jeu utilise des images provenant de la bibliothèque **MiniLibX**.
+- **🗺️ Parsing de Cartes** : Le jeu peut lire et interpréter des cartes `.ber` définissant la disposition du niveau.
+- **✔️ Vérification de la Carte** : Le jeu vérifie que la carte est valide et qu’un chemin vers la sortie existe.
 
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020253.png)
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020328.png)
-![alt tag](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
+---
 
+## 🧟‍🔬 Fonctionnalités Bonus
 
+Ces fonctionnalités supplémentaires apportent une meilleure expérience utilisateur :
 
+- **💀 Défaite du Joueur** : Le joueur peut perdre si son personnage est touché par un ennemi patrouillant 🧟‍♀️.
+- **🎥 Animations de Sprites** : Le jeu utilise des animations pour les personnages et les ennemis.
+- **👁️ Affichage du Nombre de Mouvements** : Le nombre total de mouvements est affiché directement dans la fenêtre du jeu.
+- **🧩 Autotiling** : Gestion dynamique des textures en fonction de la configuration des tuiles environnantes pour un rendu plus naturel.
 
-## Mandatory
+![Autotiling Preview](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20015825.png)
 
- * `2D Gameplay` : The game uses a 2D view (top-down or side-scrolling).
- * `Character Movement` : The player uses the W, A, S, and D keys to move the character.
- * `Obstacles` : The character cannot move through walls.
- * `Item Collection` : The player must collect all items present on the map.
- * `Exit` : The player must reach the exit to complete the level.
- * `Movement Count` : The total number of moves made by the player is displayed.
- * `Window Management` : The game window can be resized and closed properly.
- * `Image Loading` : The game uses images from the MiniLibX library.
- * `Map Parsing` : The game can parse .ber maps that define the level layout.
- * `Map Checking` : The game checks that the map is valid and that there is a possible path to the exit.
+---
 
-## Bonus
+## ⚠️ Chargement et Erreurs
 
- * `Player Loss` : The player can lose if their character is touched by an enemy patrol.
- * `Sprite Animations` : The game uses sprite animations for the character and enemies.
- * `Movement Count Display` : The total number of moves is displayed directly in the game window.
+Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en cas de problème de chargement ou de manipulation des fichiers :
 
+![Erreur Exemple](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
+
+---
+
+## 🧪 Installation et Utilisation
+
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/ftTower/soLong.git
+   cd so_long
+  ```
