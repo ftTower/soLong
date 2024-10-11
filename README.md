@@ -4,6 +4,8 @@
 
 This project involves creating a 2D game using the **MiniLibX** graphics library. The game, called "So Long," aims to guide a character 🧟‍♂️ through a map, collect items 🧪, and reach the exit 🏁. This project will help you develop skills in window management, texture manipulation, and sprite animation.
 
+![Main Display](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-616148c4a7.gif)
+
 ![Gameplay Preview](https://github.com/ftTower/soLong/blob/main/md_asset/ezgif-3-1614a8c958.gif)
 
 ---
@@ -43,9 +45,13 @@ These additional features provide a better user experience:
 The game provides detailed error messages to guide the user in case of loading issues or file manipulation errors:
 
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
+
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
+
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020328.png)
+
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020253.png)
+
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
 
 ---
