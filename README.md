@@ -42,9 +42,9 @@ These additional features provide a better user experience:
 
 ## ⚠️ Loading and Error Handling
 
-The game provides detailed error messages to guide the user in case of loading issues or file manipulation errors:
+![Terminal View](md_asset/ezgif-3-e408267531.gif)
 
-![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
+The game provides detailed error messages to guide the user in case of loading issues or file manipulation errors:
 
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020152.png)
 
@@ -53,6 +53,8 @@ The game provides detailed error messages to guide the user in case of loading i
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020253.png)
 
 ![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020228.png)
+
+![Error Example](https://github.com/ftTower/soLong/blob/main/md_asset/Capture%20d%E2%80%99%C3%A9cran%202024-09-25%20020401.png)
 
 ---
 
