@@ -2,7 +2,7 @@ SRC_BONUS_DIR		=	src_bonus
 BUILD_BONUS_DIR		=	build_bonus
 SRC_DIR				=	src
 BUILD_DIR			=	build
-NAME				=	so_long
+NAME				=	soLong
 CFLAG				=	-Wall -Wextra -Werror -I./header/ -I./minilibx-linux/
 LDFLAGS 			= 	-L./minilibx-linux -lmlx_Linux -lmlx -lX11 -lXext
 
