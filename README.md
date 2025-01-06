@@ -122,6 +122,4 @@ Le jeu propose des messages d'erreur détaillés pour guider l’utilisateur en 
 1. Clonez le dépôt :
    ```bash
    git clone https://github.com/ftTower/soLong.git
-   cd soLong
-   make minlibx
-   make
+   cd soLong && make minlibx && make bonus && ./soLong map/deco/md.ber
