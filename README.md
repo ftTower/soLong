@@ -63,11 +63,7 @@ The game provides detailed error messages to guide the user in case of loading i
 1. Clone the repository:
    ```bash
    git clone https://github.com/ftTower/soLong.git
-   cd soLong
-   make minlibx
-   make
-
-
+   cd soLong && make minlibx && make bonus && ./soLong map/deco/md.ber
 ---
 
 ## 🇫🇷 Introduction
